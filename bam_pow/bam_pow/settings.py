@@ -25,7 +25,7 @@ if os.getenv('ENV') == 'development':
   DB_NAME = os.getenv('DB_NAME_DEV')
   DB = {
       'ENGINE': 'django.db.backends.postgresql',
-      'NAME': 'comics',
+      'NAME': 'comics2',
   }
   # Set debug to true
   DEBUG = True
