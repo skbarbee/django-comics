@@ -1,11 +1,16 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.core.validators import MinValueValidator
-
+from .author import Author
 
 class ComicBook(models.Model):
     title = models.CharField(max_length=100)
-    author = models.CharField(max_length=100)
+    author = models.ForeignKey(
+      Author,
+      on_delete=models.CASCADE,
+      related_name='written_comics'
+    ) 
+
     illustrator = models.CharField(max_length=100)
     edition = models.IntegerField(validators=[MinValueValidator(0)])
     publisher = models.CharField(max_length=50)
