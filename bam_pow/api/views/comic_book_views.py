@@ -5,7 +5,7 @@ from rest_framework import generics, status
 from django.shortcuts import get_object_or_404
 
 from ..models.comic_book import ComicBook
-from ..serializers import ComicBookSerializer
+from ..serializers import ComicBookSerializer, ComicBookReadSerialzier
 
 # Create your views here.
 class ComicBooks(generics.ListCreateAPIView):
@@ -19,7 +19,7 @@ class ComicBooks(generics.ListCreateAPIView):
         # Filter the comic_books by owner, so you can only see your owned comic_books
         # comic_books = ComicBook.objects.filter(owner=request.user.id)
         # Run the data through the serializer
-        data = ComicBookSerializer(comic_books, many=True).data
+        data = ComicBookReadSerialzier(comic_books, many=True).data
         return Response({ 'comic_books': data })
 
     def post(self, request):
@@ -48,7 +48,7 @@ class ComicBookDetail(generics.RetrieveUpdateDestroyAPIView):
             raise PermissionDenied('Unauthorized, you do not own this comic_book')
 
         # Run the data through the serializer so it's formatted
-        data = ComicBookSerializer(comic_book).data
+        data = ComicBookReadSerialzier(comic_book).data
         return Response({ 'comic_book': data })
 
     def delete(self, request, pk):

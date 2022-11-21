@@ -3,12 +3,24 @@ from rest_framework import serializers
 
 from .models.mango import Mango
 from .models.comic_book import ComicBook
+from .models.author import Author
 from .models.user import User
 
 class ComicBookSerializer(serializers.ModelSerializer):
     class Meta:
         model = ComicBook
         fields = ('id', 'title', 'author', 'illustrator', 'edition', 'publisher', 'characters', 'release_date', 'owner')
+
+class ComicBookReadSerialzier(serializers.ModelSerializer):
+	author = serializers.StringRelatedField()
+	class Meta:
+		fields = '__all__'
+		model = ComicBook
+
+class AuthorSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Author
+        fields = ('first_name','last_name')
 
 class MangoSerializer(serializers.ModelSerializer):
     class Meta:
