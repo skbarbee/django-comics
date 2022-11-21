@@ -19,8 +19,9 @@ class ComicBookReadSerialzier(serializers.ModelSerializer):
 
 class AuthorSerializer(serializers.ModelSerializer):
     class Meta:
+        fields = '__all__'
         model = Author
-        fields = ('first_name','last_name')
+    
 
 class MangoSerializer(serializers.ModelSerializer):
     class Meta:

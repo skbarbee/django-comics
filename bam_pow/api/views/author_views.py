@@ -11,6 +11,8 @@ from ..serializers import AuthorSerializer
 
 class AuthorsView(APIView):
 	"""View class for authors/ for viewing all and creating"""
+	authentication_classes = ()
+	permission_classes = ()
 	serializer_class = AuthorSerializer
 	def get(self, request):
 		authors = Author.objects.all()
@@ -26,6 +28,8 @@ class AuthorsView(APIView):
 
 class AuthorDetailView(APIView):
 	""" View class for authors/:pk for viewing a single author, updating a single author, or removing a single author  """
+	authentication_classes = ()
+	permission_classes = ()
 	serializer_class = AuthorSerializer
 	def get(self, request, pk):
 		author = get_object_or_404(Author, pk=pk)
