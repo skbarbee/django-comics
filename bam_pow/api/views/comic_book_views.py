@@ -9,14 +9,15 @@ from ..serializers import ComicBookSerializer
 
 # Create your views here.
 class ComicBooks(generics.ListCreateAPIView):
-    permission_classes=(IsAuthenticated,)
+    authentication_classes = ()
+    permission_classes = ()
     serializer_class = ComicBookSerializer
     def get(self, request):
         """Index request"""
         # Get all the comic_books:
-        # comic_books = ComicBook.objects.all()
+        comic_books = ComicBook.objects.all()
         # Filter the comic_books by owner, so you can only see your owned comic_books
-        comic_books = ComicBook.objects.filter(owner=request.user.id)
+        # comic_books = ComicBook.objects.filter(owner=request.user.id)
         # Run the data through the serializer
         data = ComicBookSerializer(comic_books, many=True).data
         return Response({ 'comic_books': data })
@@ -36,7 +37,8 @@ class ComicBooks(generics.ListCreateAPIView):
         return Response(comic_book.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class ComicBookDetail(generics.RetrieveUpdateDestroyAPIView):
-    permission_classes=(IsAuthenticated,)
+    authentication_classes = ()
+    permission_classes = ()
     def get(self, request, pk):
         """Show request"""
         # Locate the comic_book to show
@@ -79,3 +81,4 @@ class ComicBookDetail(generics.RetrieveUpdateDestroyAPIView):
             return Response(status=status.HTTP_204_NO_CONTENT)
         # If the data is not valid, return a response with the errors
         return Response(data.errors, status=status.HTTP_400_BAD_REQUEST)
+
