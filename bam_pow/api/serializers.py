@@ -2,7 +2,13 @@ from django.contrib.auth import get_user_model
 from rest_framework import serializers
 
 from .models.mango import Mango
+from .models.comic_book import ComicBook
 from .models.user import User
+
+class ComicBookSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ComicBook
+        fields = ('id', 'title', 'author', 'illustrator', 'edition', 'publisher', 'characters', 'release_date', 'owner')
 
 class MangoSerializer(serializers.ModelSerializer):
     class Meta:
