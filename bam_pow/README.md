@@ -2,7 +2,7 @@
 
 # Django Auth Template
 
-This template contains a project, `django_auth_template`, and an app, `api`,
+This template contains a project, `bam_pow`, and an app, `api`,
 which are set up complete with user authentication and an example resource,
 `Mango`, which has an example user ownership implementation.
 
