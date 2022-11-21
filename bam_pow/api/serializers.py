@@ -5,22 +5,45 @@ from .models.mango import Mango
 from .models.comic_book import ComicBook
 from .models.author import Author
 from .models.user import User
+from .models.illustrator import Illustrator
+from .models.publisher import Publisher
+from .models.character import Character
 
 class ComicBookSerializer(serializers.ModelSerializer):
     class Meta:
         model = ComicBook
         fields = ('id', 'title', 'author', 'illustrator', 'edition', 'publisher', 'characters', 'release_date', 'owner')
 
-class ComicBookReadSerialzier(serializers.ModelSerializer):
-	author = serializers.StringRelatedField()
-	class Meta:
-		fields = '__all__'
-		model = ComicBook
-
 class AuthorSerializer(serializers.ModelSerializer):
     class Meta:
-        fields = '__all__'
+        fields = ('first_name', 'last_name')
         model = Author
+
+class IllustratorSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields = ('first_name', 'last_name')
+        model = Illustrator
+
+class PublisherSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields = '__all__'
+        model = Publisher
+
+class CharacterSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields = ('first_name', 'last_name', 'alias', 'details')
+        model = Character
+
+class ComicBookReadSerializer(serializers.ModelSerializer):
+    author = serializers.StringRelatedField()
+    illustrator = serializers.StringRelatedField()
+    publisher = serializers.StringRelatedField()
+    character = serializers.StringRelatedField()
+    class Meta:
+        fields = '__all__'
+        model = ComicBook
+
+
     
 
 class MangoSerializer(serializers.ModelSerializer):
