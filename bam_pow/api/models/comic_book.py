@@ -20,6 +20,7 @@ class ComicBook(models.Model):
       related_name='illustrated_comics'
     ) 
     edition = models.IntegerField(validators=[MinValueValidator(0)])
+    
     publisher = models.ForeignKey(
       Publisher,
       on_delete=models.CASCADE,
