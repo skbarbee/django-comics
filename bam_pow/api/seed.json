@@ -1,61 +1,61 @@
 [
 	{
-		"model": "Author",
-		"id": 1,
+		"model": "api.author",
+		"pk": 1,
 		"fields": {
 			"first_name": "Eve",
 			"last_name:": "Ewing"
 		}
 	},
 	{
-		"model": "Author",
-		"id": 2,
+		"model": "api.author",
+		"pk": 2,
 		"fields": {
 			"first_name": "Cody",
 			"last_name:": "Ziglar"
 		}
 	},
 	{
-		"model": "Illustrator",
-		"id": 1,
+		"model": "api.illustrator",
+		"pk": 1,
 		"fields": {
 			"first_name": "Luciano",
 			"last_name:": "Vecchio"
 		}
 	},
 	{
-		"model": "Illustrator",
-		"id": 2,
+		"model": "api.illustrator",
+		"pk": 2,
 		"fields": {
 			"first_name": "Kevin",
 			"last_name:": "Libranda"
 		}
 	},
 	{
-		"model": "Illustrator",
-		"id": 3,
+		"model": "api.illustrator",
+		"pk": 3,
 		"fields": {
 			"first_name": "Paco",
 			"last_name:": "Medina"
 		}
 	},
 	{
-		"model": "Publisher",
-		"id": 1,
+		"model": "api.publisher",
+		"pk": 1,
 		"fields": {
 			"publisher_name": "Marvel"
 		}
 	},
 	{
-		"model": "Publisher",
-		"id": 2,
+		"model": "api.publisher",
+		"pk": 2,
 		"fields": {
 			"publisher_name": "Marvel Comics"
 		}
 	},
 	{
-		"model": "Character",
-		"id": 1,
+		"model": "api.character",
+		"pk": 1,
 		"fields": {
 			"real_name": "Riri Williams",
 			"alias":"Ironheart",
@@ -64,18 +64,18 @@
 		}
 	},
 	{
-		"model": "Character",
-		"id": 2,
+		"model": "api.character",
+		"pk": 2,
 		"fields": {
 			"real_name": "Miles Morales",
 			"alias":"Spider-man",
-			"details": "Miles Gonzalo Morale (/məˈræləs/) is a fictional character, a superhero appearing in American comic books published by Marvel Comics, and is one of the characters known as Spider-Man"
+			"details": "Miles Gonzalo Morale  is a fictional character, a superhero appearing in American comic books published by Marvel Comics, and is one of the characters known as Sppker-Man"
 
 		}
 	},
 	{
-		"model": "ComicBook",
-		"id": 1,
+		"model": "api.comic_book",
+		"pk": 1,
 		"fields": {
 			"title": "Ironheart: Meant To Fly",
 			"author:": ["Eve Ewing"],
@@ -94,8 +94,8 @@
 		}
 	},
 	{
-		"model": "ComicBook",
-		"id": 2,
+		"model": "api.comic_book",
+		"pk": 2,
 		"fields": {
 			"title": "What If...? Miles Morales",
 			"author:": ["Cody Ziglar"],
