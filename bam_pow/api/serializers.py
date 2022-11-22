@@ -12,7 +12,7 @@ from .models.character import Character
 class ComicBookSerializer(serializers.ModelSerializer):
     class Meta:
         model = ComicBook
-        fields = ('id', 'title', 'author', 'illustrator', 'edition', 'publisher', 'characters', 'release_date', 'owner')
+        fields = ('id', 'title', 'edition', 'publisher', 'authors', 'illustrators', 'characters', 'release_date', 'cover')
 
 class AuthorSerializer(serializers.ModelSerializer):
     class Meta:
@@ -35,10 +35,10 @@ class CharacterSerializer(serializers.ModelSerializer):
         model = Character
 
 class ComicBookReadSerializer(serializers.ModelSerializer):
-    author = serializers.StringRelatedField()
-    illustrator = serializers.StringRelatedField()
+    authors = serializers.StringRelatedField(many=True)
+    illustrators = serializers.StringRelatedField(many=True)
     publisher = serializers.StringRelatedField()
-    character = serializers.StringRelatedField()
+    characters = serializers.StringRelatedField(many=True)
     class Meta:
         fields = '__all__'
         model = ComicBook

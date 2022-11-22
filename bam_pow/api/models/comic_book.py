@@ -8,33 +8,17 @@ from .illustrator import Illustrator
 
 class ComicBook(models.Model):
     title = models.CharField(max_length=100)
-    author = models.ForeignKey(
-      Author,
-      on_delete=models.CASCADE,
-      related_name='written_comics'
-    ) 
-
-    illustrator = models.ForeignKey(
-      Illustrator,
-      on_delete=models.CASCADE,
-      related_name='illustrated_comics'
-    ) 
     edition = models.IntegerField(validators=[MinValueValidator(0)])
+    release_date = models.DateField()
     publisher = models.ForeignKey(
       Publisher,
       on_delete=models.CASCADE,
       related_name='published_comics'
     ) 
-    characters = models.ForeignKey(
-      Character,
-      on_delete=models.CASCADE,
-      related_name='in_comics'
-    ) 
-    release_date = models.DateField()
-    owner = models.ForeignKey(
-      get_user_model(),
-      on_delete=models.CASCADE
-  )
+    authors = models.ManyToManyField('Author')
+    illustrators = models.ManyToManyField('Illustrator')
+    characters = models.ManyToManyField('Character')
+    cover = models.CharField(max_length=200)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)

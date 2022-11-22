@@ -1,84 +1,51 @@
-from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated
-from rest_framework.exceptions import PermissionDenied
-from rest_framework import generics, status
-from django.shortcuts import get_object_or_404
+from django.shortcuts import render, get_object_or_404
+from rest_framework import status
+from rest_framework.views import APIView
+from rest_framework.response import Response 
 
 from ..models.publisher import Publisher
-from ..serializers import PublisherSerializer 
+from ..serializers import PublisherSerializer
 
-# Create your views here.
-class Publishers(generics.ListCreateAPIView):
-    authentication_classes = ()
-    permission_classes = ()
-    serializer_class = PublisherSerializer
-    def get(self, request):
-        """Index request"""
-        # Get all the publishers:
-        publishers = Publisher.objects.all()
-        # Filter the publishers by owner, so you can only see your owned publishers
-        # publishers = Publisher.objects.filter(owner=request.user.id)
-        # Run the data through the serializer
-        data = PublisherSerializer(publishers, many=True).data
-        return Response({ 'publishers': data })
 
-    def post(self, request):
-        """Create request"""
-        # Add user to request data object
-        request.data['publisher']['owner'] = request.user.id
-        # Serialize/create publisher
-        publisher = PublisherSerializer(data=request.data['publisher'])
-        # If the publisher data is valid according to our serializer...
-        if publisher.is_valid():
-            # Save the created publisher & send a response
-            publisher.save()
-            return Response({ 'publisher': publisher.data }, status=status.HTTP_201_CREATED)
-        # If the data is not valid, return a response with the errors
-        return Response(publisher.errors, status=status.HTTP_400_BAD_REQUEST)
+#create your views here
 
-class PublisherDetail(generics.RetrieveUpdateDestroyAPIView):
-    authentication_classes = ()
-    permission_classes = ()
-    def get(self, request, pk):
-        """Show request"""
-        # Locate the publisher to show
-        publisher = get_object_or_404(Publisher, pk=pk)
-        # Only want to show owned publishers?
-        if request.user != publisher.owner:
-            raise PermissionDenied('Unauthorized, you do not own this publisher')
+class PublishersView(APIView):
+	"""View class for publishers/ for viewing all and creating"""
+	authentication_classes = ()
+	permission_classes = ()
+	serializer_class = PublisherSerializer
+	def get(self, request):
+		publishers = Publisher.objects.all()
+		serializer = PublisherSerializer(publishers, many=True)
+		return Response({'publishers': serializer.data})
 
-        # Run the data through the serializer so it's formatted
-        data = PublisherSerializer(publisher).data
-        return Response({ 'publisher': data })
+	def post(self, request):
+		serializer = PublisherSerializer(data=request.data)
+		if serializer.is_valid():
+			serializer.save()
+			return Response(serializer.data, status=status.HTTP_201_CREATED)
+		return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    def delete(self, request, pk):
-        """Delete request"""
-        # Locate publisher to delete
-        publisher = get_object_or_404(Publisher, pk=pk)
-        # Check the publisher's owner against the user making this request
-        if request.user != publisher.owner:
-            raise PermissionDenied('Unauthorized, you do not own this comic book')
-        # Only delete if the user owns the  publisher
-        publisher.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+class PublisherDetailView(APIView):
+	""" View class for publishers/:pk for viewing a single publisher, updating a single publisher, or removing a single publisher  """
+	authentication_classes = ()
+	permission_classes = ()
+	serializer_class = PublisherSerializer
+	def get(self, request, pk):
+		publisher = get_object_or_404(Publisher, pk=pk)
+		serializer = PublisherSerializer(publisher)
+		return Response({'publisher': serializer.data})
 
-    def partial_update(self, request, pk):
-        """Update Request"""
-        # Locate Publisher
-        # get_object_or_404 returns a object representation of our Publisher
-        publisher = get_object_or_404(Publisher, pk=pk)
-        # Check the publisher's owner against the user making this request
-        if request.user != publisher.owner:
-            raise PermissionDenied('Unauthorized, you do not own this comic book')
+	def patch(self, request, pk):
+		publisher = get_object_or_404(Publisher, pk=pk)
+		serializer = PublisherSerializer(publisher, data=request.data)
+		if serializer.is_valid():
+			serializer.save()
+			return Response(serializer.data, status=status.HTTP_200_OK)
+		return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-        # Ensure the owner field is set to the current user's ID
-        request.data['publisher']['owner'] = request.user.id
-        # Validate updates with serializer
-        data = PublisherSerializer(publisher, data=request.data['comic book'], partial=True)
-        if data.is_valid():
-            # Save & send a 204 no content
-            data.save()
-            return Response(status=status.HTTP_204_NO_CONTENT)
-        # If the data is not valid, return a response with the errors
-        return Response(data.errors, status=status.HTTP_400_BAD_REQUEST)
+	def delete(self, request, pk):
+		publisher = get_object_or_404(Publisher, pk=pk)
+		publisher.delete()
+		return Response(status=status.HTTP_204_NO_CONTENT)
 
