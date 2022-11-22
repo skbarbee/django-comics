@@ -1,117 +1,652 @@
 [
 	{
-		"model": "Author",
-		"id": 1,
+		"model": "api.user",
+		"pk": 1,
 		"fields": {
-			"first_name": "Eve",
-			"last_name:": "Ewing"
+			"password": "pbkdf2_sha256$390000$SU0KgD7yFtrNqMEyFTivxG$U62OsjgnRcfD/fGr0GLGfR2Ntj37bxGMjMY2jlXgw6w=",
+			"last_login": "2022-11-22T20:54:10.936Z",
+			"is_superuser": false,
+			"email": "Sb@sb.com",
+			"is_active": true,
+			"is_staff": false,
+			"groups": [],
+			"user_permissions": []
 		}
 	},
 	{
-		"model": "Author",
-		"id": 2,
+		"model": "authtoken.token",
+		"pk": "b5472aaa775e98d2f8bd497d6be58134a9374aea",
 		"fields": {
-			"first_name": "Cody",
-			"last_name:": "Ziglar"
+			"user": 1,
+			"created": "2022-11-22T20:54:10.941Z"
 		}
 	},
 	{
-		"model": "Illustrator",
-		"id": 1,
+		"model": "auth.permission",
+		"pk": 1,
 		"fields": {
-			"first_name": "Luciano",
-			"last_name:": "Vecchio"
+			"name": "Can add user",
+			"content_type": 1,
+			"codename": "add_user"
 		}
 	},
 	{
-		"model": "Illustrator",
-		"id": 2,
+		"model": "auth.permission",
+		"pk": 2,
 		"fields": {
-			"first_name": "Kevin",
-			"last_name:": "Libranda"
+			"name": "Can change user",
+			"content_type": 1,
+			"codename": "change_user"
 		}
 	},
 	{
-		"model": "Illustrator",
-		"id": 3,
+		"model": "auth.permission",
+		"pk": 3,
 		"fields": {
-			"first_name": "Paco",
-			"last_name:": "Medina"
+			"name": "Can delete user",
+			"content_type": 1,
+			"codename": "delete_user"
 		}
 	},
 	{
-		"model": "Publisher",
-		"id": 1,
+		"model": "auth.permission",
+		"pk": 4,
 		"fields": {
-			"publisher_name": "Marvel"
+			"name": "Can view user",
+			"content_type": 1,
+			"codename": "view_user"
 		}
 	},
 	{
-		"model": "Publisher",
-		"id": 2,
+		"model": "auth.permission",
+		"pk": 5,
 		"fields": {
-			"publisher_name": "Marvel Comics"
+			"name": "Can add author",
+			"content_type": 2,
+			"codename": "add_author"
 		}
 	},
 	{
-		"model": "Character",
-		"id": 1,
+		"model": "auth.permission",
+		"pk": 6,
 		"fields": {
-			"real_name": "Riri Williams",
-			"alias":"Ironheart",
-			"details": "Ironheart (Riri Williams) is a fictional superhero character appearing in American comic books published by Marvel Comics. The character was created in 2016 by writers Brian Michael Bendis, and artist Mike Deodato."
-
+			"name": "Can change author",
+			"content_type": 2,
+			"codename": "change_author"
 		}
 	},
 	{
-		"model": "Character",
-		"id": 2,
+		"model": "auth.permission",
+		"pk": 7,
 		"fields": {
-			"real_name": "Miles Morales",
-			"alias":"Spider-man",
-			"details": "Miles Gonzalo Morale (/məˈræləs/) is a fictional character, a superhero appearing in American comic books published by Marvel Comics, and is one of the characters known as Spider-Man"
-
+			"name": "Can delete author",
+			"content_type": 2,
+			"codename": "delete_author"
 		}
 	},
 	{
-		"model": "ComicBook",
-		"id": 1,
+		"model": "auth.permission",
+		"pk": 8,
 		"fields": {
-			"title": "Ironheart: Meant To Fly",
-			"author:": ["Eve Ewing"],
-			"illustrator":[
-				"Luciano Vecchio",
-				"Kevin Libranda"
-			],
-			"edition": "1",
-			"publisher":"Marvel",
-			"characters": [
-				"Ironheart"
-			],
-			"release_date":"November 10, 2020",
-			"cover":"https://i.annihil.us/u/prod/marvel/i/mg/d/00/5f91ea568fcc5/clean.jpg"
-
+			"name": "Can view author",
+			"content_type": 2,
+			"codename": "view_author"
 		}
 	},
 	{
-		"model": "ComicBook",
-		"id": 2,
+		"model": "auth.permission",
+		"pk": 9,
 		"fields": {
-			"title": "What If...? Miles Morales",
-			"author:": ["Cody Ziglar"],
-			"illustrator":["Paco Medina"],
-			"edition": "5",
-			"publisher": "Marvel Comics",
-			"characters": [
-				"Spider-man"
-			],
-			"release_date":"July 06, 2022",
-			"cover":"https://i.annihil.us/u/prod/marvel/i/mg/9/30/62b9e06b0f8d0/clean.jpg"
-
+			"name": "Can add character",
+			"content_type": 3,
+			"codename": "add_character"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 10,
+		"fields": {
+			"name": "Can change character",
+			"content_type": 3,
+			"codename": "change_character"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 11,
+		"fields": {
+			"name": "Can delete character",
+			"content_type": 3,
+			"codename": "delete_character"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 12,
+		"fields": {
+			"name": "Can view character",
+			"content_type": 3,
+			"codename": "view_character"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 13,
+		"fields": {
+			"name": "Can add illustrator",
+			"content_type": 4,
+			"codename": "add_illustrator"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 14,
+		"fields": {
+			"name": "Can change illustrator",
+			"content_type": 4,
+			"codename": "change_illustrator"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 15,
+		"fields": {
+			"name": "Can delete illustrator",
+			"content_type": 4,
+			"codename": "delete_illustrator"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 16,
+		"fields": {
+			"name": "Can view illustrator",
+			"content_type": 4,
+			"codename": "view_illustrator"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 17,
+		"fields": {
+			"name": "Can add publisher",
+			"content_type": 5,
+			"codename": "add_publisher"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 18,
+		"fields": {
+			"name": "Can change publisher",
+			"content_type": 5,
+			"codename": "change_publisher"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 19,
+		"fields": {
+			"name": "Can delete publisher",
+			"content_type": 5,
+			"codename": "delete_publisher"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 20,
+		"fields": {
+			"name": "Can view publisher",
+			"content_type": 5,
+			"codename": "view_publisher"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 21,
+		"fields": {
+			"name": "Can add mango",
+			"content_type": 6,
+			"codename": "add_mango"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 22,
+		"fields": {
+			"name": "Can change mango",
+			"content_type": 6,
+			"codename": "change_mango"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 23,
+		"fields": {
+			"name": "Can delete mango",
+			"content_type": 6,
+			"codename": "delete_mango"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 24,
+		"fields": {
+			"name": "Can view mango",
+			"content_type": 6,
+			"codename": "view_mango"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 25,
+		"fields": {
+			"name": "Can add comic book",
+			"content_type": 7,
+			"codename": "add_comicbook"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 26,
+		"fields": {
+			"name": "Can change comic book",
+			"content_type": 7,
+			"codename": "change_comicbook"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 27,
+		"fields": {
+			"name": "Can delete comic book",
+			"content_type": 7,
+			"codename": "delete_comicbook"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 28,
+		"fields": {
+			"name": "Can view comic book",
+			"content_type": 7,
+			"codename": "view_comicbook"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 29,
+		"fields": {
+			"name": "Can add Token",
+			"content_type": 8,
+			"codename": "add_token"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 30,
+		"fields": {
+			"name": "Can change Token",
+			"content_type": 8,
+			"codename": "change_token"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 31,
+		"fields": {
+			"name": "Can delete Token",
+			"content_type": 8,
+			"codename": "delete_token"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 32,
+		"fields": {
+			"name": "Can view Token",
+			"content_type": 8,
+			"codename": "view_token"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 33,
+		"fields": {
+			"name": "Can add token",
+			"content_type": 9,
+			"codename": "add_tokenproxy"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 34,
+		"fields": {
+			"name": "Can change token",
+			"content_type": 9,
+			"codename": "change_tokenproxy"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 35,
+		"fields": {
+			"name": "Can delete token",
+			"content_type": 9,
+			"codename": "delete_tokenproxy"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 36,
+		"fields": {
+			"name": "Can view token",
+			"content_type": 9,
+			"codename": "view_tokenproxy"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 37,
+		"fields": {
+			"name": "Can add log entry",
+			"content_type": 10,
+			"codename": "add_logentry"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 38,
+		"fields": {
+			"name": "Can change log entry",
+			"content_type": 10,
+			"codename": "change_logentry"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 39,
+		"fields": {
+			"name": "Can delete log entry",
+			"content_type": 10,
+			"codename": "delete_logentry"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 40,
+		"fields": {
+			"name": "Can view log entry",
+			"content_type": 10,
+			"codename": "view_logentry"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 41,
+		"fields": {
+			"name": "Can add permission",
+			"content_type": 11,
+			"codename": "add_permission"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 42,
+		"fields": {
+			"name": "Can change permission",
+			"content_type": 11,
+			"codename": "change_permission"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 43,
+		"fields": {
+			"name": "Can delete permission",
+			"content_type": 11,
+			"codename": "delete_permission"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 44,
+		"fields": {
+			"name": "Can view permission",
+			"content_type": 11,
+			"codename": "view_permission"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 45,
+		"fields": {
+			"name": "Can add group",
+			"content_type": 12,
+			"codename": "add_group"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 46,
+		"fields": {
+			"name": "Can change group",
+			"content_type": 12,
+			"codename": "change_group"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 47,
+		"fields": {
+			"name": "Can delete group",
+			"content_type": 12,
+			"codename": "delete_group"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 48,
+		"fields": {
+			"name": "Can view group",
+			"content_type": 12,
+			"codename": "view_group"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 49,
+		"fields": {
+			"name": "Can add content type",
+			"content_type": 13,
+			"codename": "add_contenttype"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 50,
+		"fields": {
+			"name": "Can change content type",
+			"content_type": 13,
+			"codename": "change_contenttype"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 51,
+		"fields": {
+			"name": "Can delete content type",
+			"content_type": 13,
+			"codename": "delete_contenttype"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 52,
+		"fields": {
+			"name": "Can view content type",
+			"content_type": 13,
+			"codename": "view_contenttype"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 53,
+		"fields": {
+			"name": "Can add session",
+			"content_type": 14,
+			"codename": "add_session"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 54,
+		"fields": {
+			"name": "Can change session",
+			"content_type": 14,
+			"codename": "change_session"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 55,
+		"fields": {
+			"name": "Can delete session",
+			"content_type": 14,
+			"codename": "delete_session"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 56,
+		"fields": {
+			"name": "Can view session",
+			"content_type": 14,
+			"codename": "view_session"
+		}
+	},
+	{
+		"model": "contenttypes.contenttype",
+		"pk": 1,
+		"fields": {
+			"app_label": "api",
+			"model": "user"
+		}
+	},
+	{
+		"model": "contenttypes.contenttype",
+		"pk": 2,
+		"fields": {
+			"app_label": "api",
+			"model": "author"
+		}
+	},
+	{
+		"model": "contenttypes.contenttype",
+		"pk": 3,
+		"fields": {
+			"app_label": "api",
+			"model": "character"
+		}
+	},
+	{
+		"model": "contenttypes.contenttype",
+		"pk": 4,
+		"fields": {
+			"app_label": "api",
+			"model": "illustrator"
+		}
+	},
+	{
+		"model": "contenttypes.contenttype",
+		"pk": 5,
+		"fields": {
+			"app_label": "api",
+			"model": "publisher"
+		}
+	},
+	{
+		"model": "contenttypes.contenttype",
+		"pk": 6,
+		"fields": {
+			"app_label": "api",
+			"model": "mango"
+		}
+	},
+	{
+		"model": "contenttypes.contenttype",
+		"pk": 7,
+		"fields": {
+			"app_label": "api",
+			"model": "comicbook"
+		}
+	},
+	{
+		"model": "contenttypes.contenttype",
+		"pk": 8,
+		"fields": {
+			"app_label": "authtoken",
+			"model": "token"
+		}
+	},
+	{
+		"model": "contenttypes.contenttype",
+		"pk": 9,
+		"fields": {
+			"app_label": "authtoken",
+			"model": "tokenproxy"
+		}
+	},
+	{
+		"model": "contenttypes.contenttype",
+		"pk": 10,
+		"fields": {
+			"app_label": "admin",
+			"model": "logentry"
+		}
+	},
+	{
+		"model": "contenttypes.contenttype",
+		"pk": 11,
+		"fields": {
+			"app_label": "auth",
+			"model": "permission"
+		}
+	},
+	{
+		"model": "contenttypes.contenttype",
+		"pk": 12,
+		"fields": {
+			"app_label": "auth",
+			"model": "group"
+		}
+	},
+	{
+		"model": "contenttypes.contenttype",
+		"pk": 13,
+		"fields": {
+			"app_label": "contenttypes",
+			"model": "contenttype"
+		}
+	},
+	{
+		"model": "contenttypes.contenttype",
+		"pk": 14,
+		"fields": {
+			"app_label": "sessions",
+			"model": "session"
+		}
+	},
+	{
+		"model": "sessions.session",
+		"pk": "h9v1x8elg8v5lz1r0m5ktahn24d4oeq0",
+		"fields": {
+			"session_data": ".eJxVjMEOwiAQRP-FsyEsLYX16L3fQBaWStXQpLQn479Lkx70OPPezFt42rfs95pWP7O4ChCX3y5QfKZyAH5QuS8yLmVb5yAPRZ60ynHh9Lqd7t9BpprbGjszaQMQybpIQZFmi4TcJWipd5TYmRYJLDq0HED1gzETDIoZtRafL-WKN6E:1oxaHS:6rVvKE_wcxZqxOouSNmmIdR4J0xtMYqwYDwvf3cyUD4",
+			"expire_date": "2022-12-06T20:54:10.953Z"
 		}
 	}
+	]
 	
-
 
 
 	]
