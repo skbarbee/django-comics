@@ -1,7 +1,7 @@
 [
 	{
 		"model": "Author",
-		"pk": 1,
+		"id": 1,
 		"fields": {
 			"first_name": "Eve",
 			"last_name:": "Ewing"
@@ -9,7 +9,7 @@
 	},
 	{
 		"model": "Author",
-		"pk": 2,
+		"id": 2,
 		"fields": {
 			"first_name": "Cody",
 			"last_name:": "Ziglar"
@@ -17,7 +17,7 @@
 	},
 	{
 		"model": "Illustrator",
-		"pk": 1,
+		"id": 1,
 		"fields": {
 			"first_name": "Luciano",
 			"last_name:": "Vecchio"
@@ -25,7 +25,7 @@
 	},
 	{
 		"model": "Illustrator",
-		"pk": 2,
+		"id": 2,
 		"fields": {
 			"first_name": "Kevin",
 			"last_name:": "Libranda"
@@ -33,7 +33,7 @@
 	},
 	{
 		"model": "Illustrator",
-		"pk": 3,
+		"id": 3,
 		"fields": {
 			"first_name": "Paco",
 			"last_name:": "Medina"
@@ -41,24 +41,23 @@
 	},
 	{
 		"model": "Publisher",
-		"pk": 1,
+		"id": 1,
 		"fields": {
 			"publisher_name": "Marvel"
 		}
 	},
 	{
 		"model": "Publisher",
-		"pk": 2,
+		"id": 2,
 		"fields": {
 			"publisher_name": "Marvel Comics"
 		}
 	},
 	{
 		"model": "Character",
-		"pk": 1,
+		"id": 1,
 		"fields": {
-			"first_name": "Riri",
-			"last_name:": "Williams",
+			"real_name": "Riri Williams",
 			"alias":"Ironheart",
 			"details": "Ironheart (Riri Williams) is a fictional superhero character appearing in American comic books published by Marvel Comics. The character was created in 2016 by writers Brian Michael Bendis, and artist Mike Deodato."
 
@@ -66,10 +65,9 @@
 	},
 	{
 		"model": "Character",
-		"pk": 2,
+		"id": 2,
 		"fields": {
-			"first_name": "Miles",
-			"last_name:": "Morales",
+			"real_name": "Miles Morales",
 			"alias":"Spider-man",
 			"details": "Miles Gonzalo Morale (/məˈræləs/) is a fictional character, a superhero appearing in American comic books published by Marvel Comics, and is one of the characters known as Spider-Man"
 
@@ -77,14 +75,19 @@
 	},
 	{
 		"model": "ComicBook",
-		"pk": 1,
+		"id": 1,
 		"fields": {
 			"title": "Ironheart: Meant To Fly",
-			"author:": "Eve Ewing",
-			"illustrator":"Marvel",
+			"author:": ["Eve Ewing"],
+			"illustrator":[
+				"Luciano Vecchio",
+				"Kevin Libranda"
+			],
 			"edition": "1",
 			"publisher":"Marvel",
-			"characters": "Ironheart",
+			"characters": [
+				"Ironheart"
+			],
 			"release_date":"November 10, 2020",
 			"cover":"https://i.annihil.us/u/prod/marvel/i/mg/d/00/5f91ea568fcc5/clean.jpg"
 
@@ -92,14 +95,16 @@
 	},
 	{
 		"model": "ComicBook",
-		"pk": 2,
+		"id": 2,
 		"fields": {
 			"title": "What If...? Miles Morales",
-			"author:": "Cody Ziglar",
-			"illustrator":"Paco Medina",
+			"author:": ["Cody Ziglar"],
+			"illustrator":["Paco Medina"],
 			"edition": "5",
 			"publisher": "Marvel Comics",
-			"characters": "Miles Morales,Thor, Captain America, Hulk, Thor ",
+			"characters": [
+				"Spider-man"
+			],
 			"release_date":"July 06, 2022",
 			"cover":"https://i.annihil.us/u/prod/marvel/i/mg/9/30/62b9e06b0f8d0/clean.jpg"
 
