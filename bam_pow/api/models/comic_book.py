@@ -8,17 +8,6 @@ from .illustrator import Illustrator
 
 class ComicBook(models.Model):
     title = models.CharField(max_length=100)
-    author = models.ForeignKey(
-      Author,
-      on_delete=models.CASCADE,
-      related_name='written_comics'
-    ) 
-
-    illustrator = models.ForeignKey(
-      Illustrator,
-      on_delete=models.CASCADE,
-      related_name='illustrated_comics'
-    ) 
     edition = models.IntegerField(validators=[MinValueValidator(0)])
     release_date = models.DateField()
     publisher = models.ForeignKey(
@@ -36,6 +25,3 @@ class ComicBook(models.Model):
 
     def __str__(self):
         return f"{self.title}"
-
-    
-    
