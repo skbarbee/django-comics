@@ -8,6 +8,7 @@ from .models.user import User
 from .models.illustrator import Illustrator
 from .models.publisher import Publisher
 from .models.character import Character
+from .models.favorites import Favorite
 
 class ComicBookSerializer(serializers.ModelSerializer):
     class Meta:
@@ -43,8 +44,19 @@ class ComicBookReadSerializer(serializers.ModelSerializer):
         fields = '__all__'
         model = ComicBook
 
+class FavoriteSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields = '__all__'
+        model = Favorite
 
-    
+class FavoriteReadSerializer(serializers.ModelSerializer):
+    authors = serializers.StringRelatedField(many=True)
+    illustrators = serializers.StringRelatedField(many=True)
+    publisher = serializers.StringRelatedField(many=True)
+    characters = serializers.StringRelatedField(many=True)
+    class Meta:
+        fields = '__all__'
+        model = Favorite
 
 class MangoSerializer(serializers.ModelSerializer):
     class Meta:
