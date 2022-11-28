@@ -13,6 +13,8 @@ class ComicBookSerializer(serializers.ModelSerializer):
     class Meta:
         model = ComicBook
         fields = ('id', 'title', 'edition', 'publisher', 'authors', 'illustrators', 'characters', 'release_date', 'cover')
+     
+
 
 class AuthorSerializer(serializers.ModelSerializer):
     class Meta:

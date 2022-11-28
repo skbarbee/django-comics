@@ -20,7 +20,7 @@ class ComicBooksView(APIView):
 		return Response({'comic_books': serializer.data})
 
 	def post(self, request):
-		serializer = ComicBookSerializer(data=request.data)
+		serializer = ComicBookSerializer(data=request.data, partial=True)
 		if serializer.is_valid():
 			serializer.save()
 			return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -38,7 +38,7 @@ class ComicBookDetailView(APIView):
 
 	def patch(self, request, pk):
 		comic_book = get_object_or_404(ComicBook, pk=pk)
-		serializer = ComicBookSerializer(comic_book, data=request.data)
+		serializer = ComicBookSerializer(comic_book, data=request.data, partial=True)
 		if serializer.is_valid():
 			serializer.save()
 			return Response(serializer.data, status=status.HTTP_200_OK)
