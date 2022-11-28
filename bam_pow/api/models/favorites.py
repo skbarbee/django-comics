@@ -23,4 +23,4 @@ class Favorite(models.Model):
     )
 
     def __str__(self):
-        return
+        return "These are favorites"
