@@ -3,7 +3,7 @@ from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response 
 
-from ..models.favorite import Favorite
+from ..models.favorites import Favorite
 from ..serializers import FavoriteSerializer
 
 

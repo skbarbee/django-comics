@@ -6,6 +6,7 @@ from .views.user_views import SignUp, SignIn, SignOut, ChangePassword
 from .views.illustrator import IllustratorsView, IllustratorDetailView
 from .views.publisher import PublishersView, PublisherDetailView
 from .views.character_views import CharactersView, CharacterDetailView
+from .views.favorite_views import FavoritesView, FavoriteDetailView
 
 
 urlpatterns = [
@@ -20,8 +21,7 @@ urlpatterns = [
     path('publishers/<int:pk>/', PublisherDetailView.as_view(), name='publisher'),
     path('characters/', CharactersView.as_view(), name='characters'),
     path('characters/<int:pk>/', CharacterDetailView.as_view(), name='character'),
-    path('mangos/', Mangos.as_view(), name='mangos'),
-    path('mangos/<int:pk>/', MangoDetail.as_view(), name='mango_detail'),
+    path('favorites/', FavoritesView.as_view(), name='favorites'),
     path('sign-up/', SignUp.as_view(), name='sign-up'),
     path('sign-in/', SignIn.as_view(), name='sign-in'),
     path('sign-out/', SignOut.as_view(), name='sign-out'),

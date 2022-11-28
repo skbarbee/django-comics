@@ -6,6 +6,10 @@ from .publisher import Publisher
 
 
 class Favorite(models.Model):
+    user = models.ForeignKey(
+        'User',
+        on_delete=models.CASCADE
+    )
     author = models.ForeignKey(
         Author,
         on_delete=models.CASCADE,
