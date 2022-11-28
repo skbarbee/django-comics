@@ -16,7 +16,7 @@ class AuthorsView(APIView):
 	serializer_class = AuthorSerializer
 	def get(self, request):
 		authors = Author.objects.all()
-		serializer = AuthorSerializer(authors, many=True)
+		serializer = AuthorSerializer(authors, many=True, )
 		return Response({'authors': serializer.data})
 
 	def post(self, request):
