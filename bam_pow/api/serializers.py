@@ -19,12 +19,12 @@ class ComicBookSerializer(serializers.ModelSerializer):
 
 class AuthorSerializer(serializers.ModelSerializer):
     class Meta:
-        fields = ('first_name', 'last_name')
+        fields = ('first_name', 'last_name', 'id')
         model = Author
 
 class IllustratorSerializer(serializers.ModelSerializer):
     class Meta:
-        fields = ('first_name', 'last_name')
+        fields = ('first_name', 'last_name', 'id')
         model = Illustrator
 
 class PublisherSerializer(serializers.ModelSerializer):
@@ -34,7 +34,7 @@ class PublisherSerializer(serializers.ModelSerializer):
 
 class CharacterSerializer(serializers.ModelSerializer):
     class Meta:
-        fields = ('real_name', 'alias', 'details')
+        fields = ('real_name', 'alias', 'details', 'id')
         model = Character
 
 class ComicBookReadSerializer(serializers.ModelSerializer):
