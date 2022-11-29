@@ -20,6 +20,7 @@ class CharactersView(APIView):
 		return Response({'characters': serializer.data})
 
 	def post(self, request):
+		request.data['character']['owner'] = request.user.id
 		serializer = CharacterSerializer(data=request.data['character'])
 		if serializer.is_valid():
 			serializer.save()

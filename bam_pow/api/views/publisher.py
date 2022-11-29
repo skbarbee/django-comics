@@ -20,6 +20,7 @@ class PublishersView(APIView):
 		return Response({'publishers': serializer.data})
 
 	def post(self, request):
+		request.data['publisher']['owner'] = request.user.id
 		serializer = PublisherSerializer(data=request.data["publisher"])
 		if serializer.is_valid():
 			serializer.save()

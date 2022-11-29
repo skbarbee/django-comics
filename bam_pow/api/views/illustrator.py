@@ -20,6 +20,7 @@ class IllustratorsView(APIView):
 		return Response({'illustrators': serializer.data})
 
 	def post(self, request):
+		request.data['illustrator']['owner'] = request.user.id
 		serializer = IllustratorSerializer(data=request.data['illustrator'])
 		if serializer.is_valid():
 			serializer.save()

@@ -20,6 +20,7 @@ class AuthorsView(APIView):
 		return Response({'authors': serializer.data})
 
 	def post(self, request):
+		request.data['author']['owner'] = request.user.id
 		serializer = AuthorSerializer(data=request.data['author'])
 		print('this is the author create\n', request.data['author'])
 		if serializer.is_valid():
