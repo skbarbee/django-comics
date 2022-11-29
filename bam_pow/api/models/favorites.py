@@ -4,6 +4,7 @@ from .illustrator import Illustrator
 from .character import Character
 from .publisher import Publisher
 
+
 class Favorite(models.Model):
     user = models.ForeignKey(
         'User',
@@ -23,6 +24,10 @@ class Favorite(models.Model):
     )
     publisher = models.ForeignKey(
         Publisher,
+        on_delete=models.CASCADE
+    )
+    user = models.ForeignKey(
+        'User',
         on_delete=models.CASCADE
     )
 
