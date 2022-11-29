@@ -2,11 +2,11 @@
 --In order to keep the pk's in order 
 --psql
 --DROP DATABASE comics3
---CREATE DATABSE comics3
+--CREATE DATABASE comics3
 --(Then leave PSQL and do) python manage.py migrate 
 --Then 
 --psql 
---- /i seed.sql
+--- \i seed.sql
 \c comics3;
 
 ---Publisher
