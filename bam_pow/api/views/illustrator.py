@@ -20,7 +20,7 @@ class IllustratorsView(APIView):
 		return Response({'illustrators': serializer.data})
 
 	def post(self, request):
-		serializer = IllustratorSerializer(data=request.data)
+		serializer = IllustratorSerializer(data=request.data['illustrator'])
 		if serializer.is_valid():
 			serializer.save()
 			return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -38,7 +38,7 @@ class IllustratorDetailView(APIView):
 
 	def patch(self, request, pk):
 		illustrator = get_object_or_404(Illustrator, pk=pk)
-		serializer = IllustratorSerializer(illustrator, data=request.data)
+		serializer = IllustratorSerializer(illustrator, data=request.data['illustrator'])
 		if serializer.is_valid():
 			serializer.save()
 			return Response(serializer.data, status=status.HTTP_200_OK)

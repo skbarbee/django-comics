@@ -20,7 +20,7 @@ class FavoritesView(APIView):
 		return Response({'favorites': serializer.data})
 
 	def post(self, request):
-		serializer = FavoriteSerializer(data=request.data)
+		serializer = FavoriteSerializer(data=request.data['favorite'])
 		if serializer.is_valid():
 			serializer.save()
 			return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -38,7 +38,7 @@ class FavoriteDetailView(APIView):
 
 	def patch(self, request, pk):
 		favorite = get_object_or_404(Favorite, pk=pk)
-		serializer = FavoriteSerializer(favorite, data=request.data)
+		serializer = FavoriteSerializer(favorite, data=request.data['favorite'])
 		if serializer.is_valid():
 			serializer.save()
 			return Response(serializer.data, status=status.HTTP_200_OK)

@@ -20,7 +20,7 @@ class CharactersView(APIView):
 		return Response({'characters': serializer.data})
 
 	def post(self, request):
-		serializer = CharacterSerializer(data=request.data)
+		serializer = CharacterSerializer(data=request.data['character'])
 		if serializer.is_valid():
 			serializer.save()
 			return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -38,7 +38,7 @@ class CharacterDetailView(APIView):
 
 	def patch(self, request, pk):
 		character = get_object_or_404(Character, pk=pk)
-		serializer = CharacterSerializer(character, data=request.data)
+		serializer = CharacterSerializer(character, data=request.data['character'])
 		if serializer.is_valid():
 			serializer.save()
 			return Response(serializer.data, status=status.HTTP_200_OK)
