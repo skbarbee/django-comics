@@ -20,7 +20,7 @@ class PublishersView(APIView):
 		return Response({'publishers': serializer.data})
 
 	def post(self, request):
-		serializer = PublisherSerializer(data=request.data)
+		serializer = PublisherSerializer(data=request.data["publisher"])
 		if serializer.is_valid():
 			serializer.save()
 			return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -38,7 +38,7 @@ class PublisherDetailView(APIView):
 
 	def patch(self, request, pk):
 		publisher = get_object_or_404(Publisher, pk=pk)
-		serializer = PublisherSerializer(publisher, data=request.data)
+		serializer = PublisherSerializer(publisher, data=request.data["publisher"])
 		if serializer.is_valid():
 			serializer.save()
 			return Response(serializer.data, status=status.HTTP_200_OK)
