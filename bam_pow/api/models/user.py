@@ -72,8 +72,10 @@ class User(AbstractBaseUser, PermissionsMixin):
     # make sure to use the custom user manager we created.
     objects = UserManager()
     favorite_authors = models.ManyToManyField(
-        Author,
-       blank=True
+        'Author',
+        blank=True
+        # through=Favorite,
+        # through_fields=('user', 'author')
     )
     favorite_illustrators = models.ManyToManyField(
         Illustrator,
@@ -103,6 +105,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     def __str__(self):
         """Return string representation of the user"""
         return self.email
+
 
     def get_auth_token(self):
         Token.objects.filter(user=self).delete()
