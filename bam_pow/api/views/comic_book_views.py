@@ -21,8 +21,8 @@ class ComicBooksView(APIView):
 		return Response({'comic_books': serializer.data})
 
 	def post(self, request):
-		print("look here",request.data['comicbook'])
-		serializer = ComicBookSerializer(data=request.data['comicbook'], partial=True)
+		# print("look here",request.data['comicbook'])
+		serializer = ComicBookSerializer(data=request.data, partial=True)
 		if serializer.is_valid():
 			serializer.save()
 			return Response(serializer.data, status=status.HTTP_201_CREATED)
