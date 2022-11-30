@@ -17,7 +17,7 @@ class ComicBook(models.Model):
     ) 
     authors = models.ManyToManyField('Author', related_name='authored')
     illustrators = models.ManyToManyField('Illustrator', related_name='illustrated')
-    characters = models.ManyToManyField('Character', related_name='appearances')
+    characters = models.ManyToManyField('Character', related_name='appeared')
     cover = models.CharField(max_length=200, null=True, blank=True)
 
     created_at = models.DateTimeField(auto_now_add=True)

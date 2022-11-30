@@ -5,6 +5,7 @@ from rest_framework.response import Response
 
 from ..models.character import Character
 from ..serializers import CharacterSerializer
+from ..serializers import ComicBookReadSerializer
 
 
 #create your views here
@@ -34,8 +35,14 @@ class CharacterDetailView(APIView):
 	serializer_class = CharacterSerializer
 	def get(self, request, pk):
 		character = get_object_or_404(Character, pk=pk)
+		comic_appearances = character.appeared.filter(id=pk)
 		serializer = CharacterSerializer(character)
-		return Response({'character': serializer.data})
+		c_serializer = ComicBookReadSerializer
+		return Response(
+			{'character': serializer.data,
+			'appeared' : c_serializer(comic_appearances, many=True).data
+			}
+		)
 
 	def patch(self, request, pk):
 		character = get_object_or_404(Character, pk=pk)
