@@ -8,33 +8,37 @@ from .publisher import Publisher
 class Favorite(models.Model):
     user = models.ForeignKey(
         'User',
+        null=True, blank=True,
         on_delete=models.CASCADE,
-        null=True, blank=True
+      
     )
     author = models.ForeignKey(
         Author,
+        null=True, blank=True,
         on_delete=models.CASCADE,
-        null=True, blank=True
+       
     )
     illustrator = models.ForeignKey(
         Illustrator,
+        null=True, blank=True,
         on_delete=models.CASCADE,
-        null=True, blank=True
+       
     )
     character = models.ForeignKey(
         Character,
+        null=True, blank=True,
         on_delete=models.CASCADE,
-        null=True, blank=True
+        
     )
     publisher = models.ForeignKey(
         Publisher,
+        null=True, blank=True,
         on_delete=models.CASCADE,
-        null=True, blank=True
     )
     user = models.ForeignKey(
         'User',
+        null=True, blank=True,
         on_delete=models.CASCADE,
-        null=True, blank=True
     )
 
     def __str__(self):
