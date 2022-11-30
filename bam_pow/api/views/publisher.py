@@ -5,6 +5,7 @@ from rest_framework.response import Response
 
 from ..models.publisher import Publisher
 from ..serializers import PublisherSerializer
+from ..serializers import ComicBookReadSerializer
 
 
 #create your views here
@@ -34,8 +35,16 @@ class PublisherDetailView(APIView):
 	serializer_class = PublisherSerializer
 	def get(self, request, pk):
 		publisher = get_object_or_404(Publisher, pk=pk)
+		publications = publisher.published_comics.filter(id=pk)
 		serializer = PublisherSerializer(publisher)
-		return Response({'publisher': serializer.data})
+		c_serializer = ComicBookReadSerializer
+		return Response(
+			{
+				'publisher': serializer.data,
+				'published': c_serializer(publications, many=True).data
+
+			}
+		)
 
 	def patch(self, request, pk):
 		publisher = get_object_or_404(Publisher, pk=pk)

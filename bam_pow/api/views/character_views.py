@@ -39,8 +39,9 @@ class CharacterDetailView(APIView):
 		serializer = CharacterSerializer(character)
 		c_serializer = ComicBookReadSerializer
 		return Response(
-			{'character': serializer.data,
-			'appeared' : c_serializer(comic_appearances, many=True).data
+			{
+				'character': serializer.data,
+				'appeared': c_serializer(comic_appearances, many=True).data
 			}
 		)
 

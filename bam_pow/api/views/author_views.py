@@ -45,8 +45,9 @@ class AuthorDetailView(APIView):
 		c_serializer = ComicBookReadSerializer
 		print(c_serializer(comics_written,many=True).data)
 		return Response(
-			{'author': serializer.data , 
-			"written":c_serializer(comics_written,many=True).data
+			{
+				'author': serializer.data , 
+				"written":c_serializer(comics_written,many=True).data
 			}
 		)
 

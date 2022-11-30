@@ -39,8 +39,9 @@ class IllustratorDetailView(APIView):
 		serializer = IllustratorSerializer(illustrator)
 		c_serializer = ComicBookReadSerializer
 		return Response(
-			{'illustrator': serializer.data ,
-			'illustrated': c_serializer(comics_illustrated, many=True).data
+			{
+				'illustrator': serializer.data ,
+				'illustrated': c_serializer(comics_illustrated, many=True).data
 			}
 		)
 
