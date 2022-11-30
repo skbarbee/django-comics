@@ -73,7 +73,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     objects = UserManager()
     favorite_authors = models.ManyToManyField(
         Author,
-       blank=True
+        through=Favorite,
+        through_fields=('user', 'author')
     )
     favorite_illustrators = models.ManyToManyField(
         Illustrator,
@@ -115,4 +116,4 @@ class User(AbstractBaseUser, PermissionsMixin):
         Token.objects.filter(user=self).delete()
         self.token = None
         self.save()
-        return self
+        return self 
