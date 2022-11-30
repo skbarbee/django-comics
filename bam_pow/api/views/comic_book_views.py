@@ -16,6 +16,7 @@ class ComicBooksView(APIView):
 	serializer_class = ComicBookSerializer
 	def get(self, request):
 		comic_books = ComicBook.objects.all()
+		print("THIS IS ALL THE COMIC BOOKS\n",comic_books)
 		serializer = ComicBookReadSerializer(comic_books, many=True)
 		return Response({'comic_books': serializer.data})
 
@@ -35,11 +36,13 @@ class ComicBookDetailView(APIView):
 	serializer_class = ComicBookSerializer
 	def get(self, request, pk):
 		comic_book = get_object_or_404(ComicBook, pk=pk)
+		print('THIS IS A SINGLE COMICBOOK\n', comic_book)
 		serializer = ComicBookReadSerializer(comic_book)
 		return Response({'comic_book': serializer.data})
 
 	def patch(self, request, pk):
 		comic_book = get_object_or_404(ComicBook, pk=pk)
+		
 		serializer = ComicBookSerializer(comic_book, data=request.data['comicbook'], partial=True)
 		if serializer.is_valid():
 			serializer.save()

@@ -15,7 +15,7 @@ class ComicBook(models.Model):
       on_delete=models.CASCADE,
       related_name='published_comics'
     ) 
-    authors = models.ManyToManyField('Author')
+    authors = models.ManyToManyField('Author', related_name='comics')
     illustrators = models.ManyToManyField('Illustrator')
     characters = models.ManyToManyField('Character')
     cover = models.CharField(max_length=200, null=True, blank=True)
@@ -25,3 +25,5 @@ class ComicBook(models.Model):
 
     def __str__(self):
         return f"{self.title}"
+
+      

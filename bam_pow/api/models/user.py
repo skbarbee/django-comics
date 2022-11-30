@@ -73,8 +73,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     objects = UserManager()
     favorite_authors = models.ManyToManyField(
         Author,
-        through=Favorite,
-        through_fields=('user', 'author')
+       blank=True
     )
     favorite_illustrators = models.ManyToManyField(
         Illustrator,
