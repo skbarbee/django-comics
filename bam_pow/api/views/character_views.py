@@ -35,7 +35,7 @@ class CharacterDetailView(APIView):
 	serializer_class = CharacterSerializer
 	def get(self, request, pk):
 		character = get_object_or_404(Character, pk=pk)
-		comic_appearances = character.appeared.filter(id=pk)
+		comic_appearances = character.appeared.all()
 		serializer = CharacterSerializer(character)
 		c_serializer = ComicBookReadSerializer
 		return Response(
