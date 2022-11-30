@@ -21,8 +21,7 @@ class ComicBooksView(APIView):
 		return Response({'comic_books': serializer.data})
 
 	def post(self, request):
-		print("look here",request.data)
-		request.data['comicbook']['owner'] = request.user.id
+		print("look here",request.data['comicbook'])
 		serializer = ComicBookSerializer(data=request.data['comicbook'], partial=True)
 		if serializer.is_valid():
 			serializer.save()
