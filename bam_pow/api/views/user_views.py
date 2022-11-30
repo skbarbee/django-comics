@@ -78,7 +78,7 @@ class SignOut(generics.DestroyAPIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 class ChangePassword(generics.UpdateAPIView):
-    def patch(self, request):
+    def partial_update(self, request):
         user = request.user
         # Pass data through serializer
         serializer = ChangePasswordSerializer(data=request.data['passwords'])
