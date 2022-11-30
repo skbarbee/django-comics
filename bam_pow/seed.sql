@@ -63,6 +63,10 @@ INSERT INTO api_publisher (publisher_name, created_at, updated_at) VALUES
 INSERT INTO api_publisher(publisher_name, created_at, updated_at) VALUES
 ('BOOM!',now(), now());
 
+--pk:6
+INSERT INTO api_publisher(publisher_name, created_at, updated_at) VALUES
+('DC Comics', now(), now());
+
 
 --- Author
 
