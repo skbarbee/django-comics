@@ -1,14 +1,14 @@
 from django.contrib.auth import get_user_model
 from rest_framework import serializers
 
-from .models.mango import Mango
+from .models.favorites import Favorites
 from .models.comic_book import ComicBook
 from .models.author import Author
 from .models.user import User
 from .models.illustrator import Illustrator
 from .models.publisher import Publisher
 from .models.character import Character
-from .models.favorites import Favorite
+
 
 class ComicBookSerializer(serializers.ModelSerializer):
     class Meta:
@@ -46,26 +46,22 @@ class ComicBookReadSerializer(serializers.ModelSerializer):
         fields = '__all__'
         model = ComicBook
 
-class FavoriteSerializer(serializers.ModelSerializer):
-    class Meta:
-        fields = '__all__'
-        model = Favorite
 
-class FavoriteReadSerializer(serializers.ModelSerializer):
-    authors = serializers.StringRelatedField(many=True)
-    illustrators = serializers.StringRelatedField(many=True)
-    publisher = serializers.StringRelatedField(many=True)
-    characters = serializers.StringRelatedField(many=True)
-    class Meta:
-        fields = '__all__'
-        model = Favorite
 
-class MangoSerializer(serializers.ModelSerializer):
+class FavoritesSerializer(serializers.ModelSerializer):
+    favorite_authors = serializers.StringRelatedField(many=True)
+    favorite_illustrators = serializers.StringRelatedField(many=True)
+    favorite_publishers = serializers.StringRelatedField()
+    favorite_characters = serializers.StringRelatedField(many=True)
     class Meta:
-        model = Mango
-        fields = ('id', 'name', 'color', 'ripe', 'owner')
+        model = Favorites
+        fields = '__all__'
 
 class UserSerializer(serializers.ModelSerializer):
+    # authors = serializers.StringRelatedField(many=True)
+    # illustrators = serializers.StringRelatedField(many=True)
+    # publisher = serializers.StringRelatedField(many=True)
+    # characters = serializers.StringRelatedField(many=True)
     # This model serializer will be used for User creation
     # The login serializer also inherits from this serializer
     # in order to require certain data for login
@@ -73,7 +69,7 @@ class UserSerializer(serializers.ModelSerializer):
         # get_user_model will get the user model (this is required)
         # https://docs.djangoproject.com/en/3.0/topics/auth/customizing/#referencing-the-user-model
         model = get_user_model()
-        fields = ('id', 'email', 'password','is_staff')
+        fields = ('id', 'email', 'password')
         extra_kwargs = { 'password': { 'write_only': True, 'min_length': 5 } }
 
     # This create method will be used for model creation
@@ -81,6 +77,7 @@ class UserSerializer(serializers.ModelSerializer):
         return get_user_model().objects.create_user(**validated_data)
 
 class UserRegisterSerializer(serializers.Serializer):
+    
     # Require email, password, and password_confirmation for sign up
     email = serializers.CharField(max_length=300, required=True)
     password = serializers.CharField(required=True)
