@@ -26,7 +26,7 @@ class PublishersView(APIView):
 		if serializer.is_valid():
 			serializer.save()
 			return Response(serializer.data, status=status.HTTP_201_CREATED)
-		return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+			return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class PublisherDetailView(APIView):
 	""" View class for publishers/:pk for viewing a single publisher, updating a single publisher, or removing a single publisher  """
@@ -35,7 +35,7 @@ class PublisherDetailView(APIView):
 	serializer_class = PublisherSerializer
 	def get(self, request, pk):
 		publisher = get_object_or_404(Publisher, pk=pk)
-		publications = publisher.published_comics.filter(id=pk)
+		publications = publisher.published_comics.all()
 		serializer = PublisherSerializer(publisher)
 		c_serializer = ComicBookReadSerializer
 		print(c_serializer(publications, many=True).data)

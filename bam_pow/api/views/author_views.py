@@ -39,7 +39,7 @@ class AuthorDetailView(APIView):
 	serializer_class = AuthorSerializer
 	def get(self, request, pk):
 		author = get_object_or_404(Author, pk=pk)
-		comics_written = author.authored.filter(id=pk)
+		comics_written = author.authored.all()
 		print('this is the comics written\n', comics_written)
 		serializer = AuthorSerializer(author)
 		c_serializer = ComicBookReadSerializer

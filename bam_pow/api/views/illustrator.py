@@ -35,7 +35,7 @@ class IllustratorDetailView(APIView):
 	serializer_class = IllustratorSerializer
 	def get(self, request, pk):
 		illustrator = get_object_or_404(Illustrator, pk=pk)
-		comics_illustrated = illustrator.illustrated.filter(id=pk)
+		comics_illustrated = illustrator.illustrated.all()
 		serializer = IllustratorSerializer(illustrator)
 		c_serializer = ComicBookReadSerializer
 		return Response(
