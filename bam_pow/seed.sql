@@ -9,6 +9,39 @@
 --- \i seed.sql
 \c comics3;
 
+
+
+-- //////////
+-- users
+-- //////////
+-- 1
+INSERT INTO api_user(email, password, is_superuser, is_active, is_staff) 
+VALUES('super@user.com', 'Test2022!', 'True', 'True', 'True');
+
+-- 2
+INSERT INTO api_user(email, password, is_superuser, is_active, is_staff) 
+VALUES('super1@user.com', 'Test2022!', 'True', 'True', 'True');
+
+-- 3
+INSERT INTO api_user(email, password, is_superuser, is_active, is_staff) 
+VALUES('super2@user.com', 'Test2022!', 'True', 'True', 'True');
+
+-- 4
+INSERT INTO api_user(email, password, is_superuser, is_active, is_staff) 
+VALUES('client@c.com', 'Test2022!', 'False', 'True', 'False');
+
+-- 5
+INSERT INTO api_user(email, password, is_superuser, is_active, is_staff) 
+VALUES('client2@c.com', 'Test2022!', 'False', 'True', 'False');
+
+-- 6
+INSERT INTO api_user(email, password, is_superuser, is_active, is_staff) 
+VALUES('client3@c.com', 'Test2022!', 'False', 'True', 'False');
+
+
+
+-- SELECT * FROM api_user;
+
 ---Publisher
 --pk:1
 INSERT INTO api_publisher(publisher_name, created_at, updated_at) VALUES
