@@ -2,11 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
 from django.conf import settings
 from rest_framework.authtoken.models import Token
-from .favorites import Favorite
-from .author import Author
-from .illustrator import Illustrator
-from .publisher import Publisher
-from .character import Character
+
 
 class UserManager(BaseUserManager):
     """Manager for user profiles"""
@@ -71,25 +67,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     # Any time we call User.objects (such as in objects.all() or objects.filter())
     # make sure to use the custom user manager we created.
     objects = UserManager()
-    favorite_authors = models.ManyToManyField(
-        Author,
-       blank=True
-    )
-    favorite_illustrators = models.ManyToManyField(
-        Illustrator,
-        through=Favorite,
-        through_fields=('user', 'illustrator')
-    )
-    favorite_characters = models.ManyToManyField(
-        Character,
-        through=Favorite,
-        through_fields=('user', 'character')
-    )
-    favorite_publishers = models.ManyToManyField(
-        Publisher,
-        through=Favorite,
-        through_fields=('user', 'publisher')
-    )
+    
     # Tell Django to use the email field as the unique identifier for the
     # user account instead of its built in behavior of using the username.
     USERNAME_FIELD = 'email'

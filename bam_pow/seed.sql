@@ -7,7 +7,7 @@
 --Then 
 --psql 
 --- \i seed.sql
-\c comics3;
+\c comicsdatabase;
 
 
 

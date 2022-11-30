@@ -62,11 +62,8 @@ class SignIn(generics.CreateAPIView):
                         'id': user.id,
                         'email': user.email,
                         'token': user.get_auth_token(),
-<<<<<<< HEAD
-
-=======
-                        'staff': user.is_staff
->>>>>>> 7186c49658b18ee2806bc79bf5516196207e94af
+                        'staff': user.is_staff,
+                       
                     }
                 })
             else:
