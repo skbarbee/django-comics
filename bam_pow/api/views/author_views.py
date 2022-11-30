@@ -1,10 +1,13 @@
 from django.shortcuts import render, get_object_or_404
+from django.core.serializers.json import DjangoJSONEncoder
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response 
-
+from ..models.comic_book import ComicBook
 from ..models.author import Author
 from ..serializers import AuthorSerializer
+from ..serializers import ComicBookReadSerializer
+import json
 
 
 #create your views here
@@ -36,8 +39,11 @@ class AuthorDetailView(APIView):
 	serializer_class = AuthorSerializer
 	def get(self, request, pk):
 		author = get_object_or_404(Author, pk=pk)
+		comics_written = author.comics.filter(id=pk)
+		print('this is the comics written\n', comics_written)
 		serializer = AuthorSerializer(author)
-		return Response({'author': serializer.data})
+		c_serializer = ComicBookReadSerializer(comics_written, many=True)
+		return Response({'author': serializer.data },{"written":c_serializer.data})
 
 	def patch(self, request, pk):
 		author = get_object_or_404(Author, pk=pk)

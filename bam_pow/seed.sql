@@ -170,3 +170,19 @@ INSERT INTO api_comicbook_characters (comicbook_id, character_id) VALUES
 
 
 
+-- Other useful commands:
+-- UPDATE api_user SET email='kiki@k.com' WHERE email = 'kiki@m.com';
+-- SELECT * FROM api_user;
+
+-- Function         | Command               | Description
+-- quit             |   \q                  | quit the shell
+-- help             |   \?                  | list help for the psql shell
+-- help             |   \h                  | list all possible SQL commands
+-- help             |   \h SELECT           | get help for a specific SQL command
+-- list             |   \l                  | lists all availible dbs found in the cluster
+-- connect          |	\c                  | connect to a database
+-- describe tables  |   \dt                 | list all the tables in the current database
+-- describe table   |	\d table_name       | lists a table's columns and datatypes
+-- edit command     |	\e                  | opens last command in your shell's default editor
+-- expanded display |   \x off (on or auto) | will change the wrap behavior of column display
+-- import           |	\i file-name.sql    | imports a .sql file and runs the commands
