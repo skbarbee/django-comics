@@ -5,6 +5,7 @@ from rest_framework.response import Response
 
 from ..models.illustrator import Illustrator
 from ..serializers import IllustratorSerializer
+from ..serializers import ComicBookReadSerializer
 
 
 #create your views here
@@ -34,8 +35,14 @@ class IllustratorDetailView(APIView):
 	serializer_class = IllustratorSerializer
 	def get(self, request, pk):
 		illustrator = get_object_or_404(Illustrator, pk=pk)
+		comics_illustrated = illustrator.illustrated.filter(id=pk)
 		serializer = IllustratorSerializer(illustrator)
-		return Response({'illustrator': serializer.data})
+		c_serializer = ComicBookReadSerializer
+		return Response(
+			{'illustrator': serializer.data ,
+			'illustrated': c_serializer(comics_illustrated, many=True).data
+			}
+		)
 
 	def patch(self, request, pk):
 		illustrator = get_object_or_404(Illustrator, pk=pk)

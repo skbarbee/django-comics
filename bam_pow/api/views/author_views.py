@@ -7,7 +7,7 @@ from ..models.comic_book import ComicBook
 from ..models.author import Author
 from ..serializers import AuthorSerializer
 from ..serializers import ComicBookReadSerializer
-import json
+
 
 
 #create your views here
@@ -39,11 +39,16 @@ class AuthorDetailView(APIView):
 	serializer_class = AuthorSerializer
 	def get(self, request, pk):
 		author = get_object_or_404(Author, pk=pk)
-		comics_written = author.comics.filter(id=pk)
+		comics_written = author.authored.filter(id=pk)
 		print('this is the comics written\n', comics_written)
 		serializer = AuthorSerializer(author)
-		c_serializer = ComicBookReadSerializer(comics_written, many=True)
-		return Response({'author': serializer.data },{"written":c_serializer.data})
+		c_serializer = ComicBookReadSerializer
+		print(c_serializer(comics_written,many=True).data)
+		return Response(
+			{'author': serializer.data , 
+			"written":c_serializer(comics_written,many=True).data
+			}
+		)
 
 	def patch(self, request, pk):
 		author = get_object_or_404(Author, pk=pk)

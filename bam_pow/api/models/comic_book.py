@@ -15,9 +15,9 @@ class ComicBook(models.Model):
       on_delete=models.CASCADE,
       related_name='published_comics'
     ) 
-    authors = models.ManyToManyField('Author', related_name='comics')
-    illustrators = models.ManyToManyField('Illustrator')
-    characters = models.ManyToManyField('Character')
+    authors = models.ManyToManyField('Author', related_name='authored')
+    illustrators = models.ManyToManyField('Illustrator', related_name='illustrated')
+    characters = models.ManyToManyField('Character', related_name='appearances')
     cover = models.CharField(max_length=200, null=True, blank=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
