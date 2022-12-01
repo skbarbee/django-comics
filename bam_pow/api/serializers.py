@@ -1,7 +1,7 @@
 from django.contrib.auth import get_user_model
 from rest_framework import serializers
 
-from .models.favorites import Favorites
+
 from .models.comic_book import ComicBook
 from .models.author import Author
 from .models.user import User
@@ -46,18 +46,36 @@ class ComicBookReadSerializer(serializers.ModelSerializer):
         fields = '__all__'
         model = ComicBook
 
+class UserFavoriteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('id', 'email', 'password', 'favorite_authors', 'favorite_illustrators', 'favorite_publishers', 'favorite_characters')
 
+class UserReadFavoriteSerializer(serializers.ModelSerializer):
+    favorite_authors = serializers.StringRelatedField(many=True)
+    favorite_illustrators = serializers.StringRelatedField(many=True)
+    favorite_publisher = serializers.StringRelatedField(many=True)
+    favorite_characters = serializers.StringRelatedField(many=True)
+    class Meta:
+        fields = '__all__'
+        model = User
 
-class FavoritesSerializer(serializers.ModelSerializer):
-    favorite_authors = AuthorSerializer(read_only=True, many=True)
-    favorite_illustrators = IllustratorSerializer(read_only=True, many=True)
+class UserGetFavoriteSerializer(serializers.ModelSerializer):
+    favorite_authors = AuthorSerializer(many=True)
+    favorite_illustrators = IllustratorSerializer(many=True)
     favorite_publishers = PublisherSerializer(many=True)
     favorite_characters = CharacterSerializer(many=True)
     class Meta:
-        model = Favorites
-        fields = ("favorite_authors","favorite_illustrators", "favorite_publishers", "favorite_characters", "owner" )
+        fields = '__all__'
+        model = User
+
+
 
 class UserSerializer(serializers.ModelSerializer):
+    favorite_authors = AuthorSerializer(many=True )
+    favorite_illustrators = IllustratorSerializer(many=True)
+    favorite_publishers = PublisherSerializer(many=True)
+    favorite_characters = CharacterSerializer(many=True )
    
     # This model serializer will be used for User creation
     # The login serializer also inherits from this serializer
@@ -66,7 +84,7 @@ class UserSerializer(serializers.ModelSerializer):
         # get_user_model will get the user model (this is required)
         # https://docs.djangoproject.com/en/3.0/topics/auth/customizing/#referencing-the-user-model
         model = get_user_model()
-        fields = ('id', 'email', 'password')
+        fields = ('id', 'email', 'password', 'favorite_authors', 'favorite_illustrators', 'favorite_publishers', 'favorite_characters')
         extra_kwargs = { 'password': { 'write_only': True, 'min_length': 5 } }
 
     # This create method will be used for model creation
