@@ -23,9 +23,9 @@ class AuthorsView(APIView):
 		return Response({'authors': serializer.data})
 
 	def post(self, request):
+		"""Add user to request data object"""
 		request.data['author']['owner'] = request.user.id
 		serializer = AuthorSerializer(data=request.data['author'])
-		print('this is the author create\n', request.data['author'])
 		if serializer.is_valid():
 			serializer.save()
 			return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -39,11 +39,10 @@ class AuthorDetailView(APIView):
 	serializer_class = AuthorSerializer
 	def get(self, request, pk):
 		author = get_object_or_404(Author, pk=pk)
+		"""Get relationships from comicBook using related name field 'authored' """
 		comics_written = author.authored.all()
-		print('this is the comics written\n', comics_written)
 		serializer = AuthorSerializer(author)
 		c_serializer = ComicBookReadSerializer
-		print(c_serializer(comics_written,many=True).data)
 		return Response(
 			{
 				'author': serializer.data , 

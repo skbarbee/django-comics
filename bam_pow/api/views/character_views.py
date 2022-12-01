@@ -21,6 +21,7 @@ class CharactersView(APIView):
 		return Response({'characters': serializer.data})
 
 	def post(self, request):
+		"""Add user to request data object"""
 		request.data['character']['owner'] = request.user.id
 		serializer = CharacterSerializer(data=request.data['character'], partial=True)
 		if serializer.is_valid():
@@ -35,6 +36,7 @@ class CharacterDetailView(APIView):
 	serializer_class = CharacterSerializer
 	def get(self, request, pk):
 		character = get_object_or_404(Character, pk=pk)
+		"""Get relationships from ComicBook using related name field 'appeared' """
 		comic_appearances = character.appeared.all()
 		serializer = CharacterSerializer(character)
 		c_serializer = ComicBookReadSerializer
