@@ -39,7 +39,6 @@ class PublisherDetailView(APIView):
 		publications = publisher.published_comics.all()
 		serializer = PublisherSerializer(publisher)
 		c_serializer = ComicBookReadSerializer
-		print(c_serializer(publications, many=True).data)
 		return Response(
 			{
 				'publisher': serializer.data,
