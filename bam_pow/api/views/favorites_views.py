@@ -21,15 +21,7 @@ class FavoritesView(generics.ListCreateAPIView):
         # Run the data through the serializer
         data = FavoritesSerializer(favorites, many=True).data
         return Response({ 'favorites': data })
-    # authentication_classes = ()
-    # permission_classes = ()
-    # serializer_class = FavoritesSerializer
-    # def get(self, request):
-    #     favorites = Favorites.objects.all()
-    #     print("THIS IS ALL THE FAVORITES\n",favorites)
-    #     serializer = FavoritesSerializer(favorites, many=True)
-    #     return Response({'favorites': serializer.data})
-
+  
     def post(self, request):
         """Create request"""
         # Add user to request data object

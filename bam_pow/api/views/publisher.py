@@ -35,6 +35,7 @@ class PublisherDetailView(APIView):
 	serializer_class = PublisherSerializer
 	def get(self, request, pk):
 		publisher = get_object_or_404(Publisher, pk=pk)
+		"""Get relationships from comicBook using related name field 'published' """
 		publications = publisher.published_comics.all()
 		serializer = PublisherSerializer(publisher)
 		c_serializer = ComicBookReadSerializer

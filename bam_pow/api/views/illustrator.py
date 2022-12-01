@@ -21,6 +21,7 @@ class IllustratorsView(APIView):
 		return Response({'illustrators': serializer.data})
 
 	def post(self, request):
+		"""Add user to request data object"""
 		request.data['illustrator']['owner'] = request.user.id
 		serializer = IllustratorSerializer(data=request.data['illustrator'])
 		if serializer.is_valid():
@@ -35,6 +36,7 @@ class IllustratorDetailView(APIView):
 	serializer_class = IllustratorSerializer
 	def get(self, request, pk):
 		illustrator = get_object_or_404(Illustrator, pk=pk)
+		"""Get relationships from comicBook using related name field 'illustrated' """
 		comics_illustrated = illustrator.illustrated.all()
 		serializer = IllustratorSerializer(illustrator)
 		c_serializer = ComicBookReadSerializer
