@@ -34,7 +34,7 @@ class PublisherSerializer(serializers.ModelSerializer):
 
 class CharacterSerializer(serializers.ModelSerializer):
     class Meta:
-        fields = ('real_name', 'alias', 'details', 'id')
+        fields = ('real_name', 'alias', 'details', 'profile_picture', 'id')
         model = Character
 
 class ComicBookReadSerializer(serializers.ModelSerializer):
