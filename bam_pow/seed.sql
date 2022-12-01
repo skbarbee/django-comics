@@ -176,7 +176,7 @@ INSERT INTO api_comicbook_authors (comicbook_id, author_id) VALUES
 ('1','1');
 
 INSERT INTO api_comicbook_authors (comicbook_id, author_id) VALUES
-('2','1');
+('2','2');
 
 INSERT INTO api_comicbook_authors (comicbook_id, author_id) VALUES
 ('3','6');
