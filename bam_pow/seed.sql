@@ -273,59 +273,59 @@ INSERT INTO api_character   (real_name, alias, details, profile_picture, created
 INSERT INTO api_character   (real_name, alias, details, profile_picture, created_at, updated_at)  VALUES
 ('Shiera Hall', 'Hawkwoman', 'Fought in World War II, before the Parademon Scout attacked the planet for the first time', 'https://s3.amazonaws.com/comicgeeks/characters/avatars/51087.jpg',now(), now());
 
---pk:16
+--pk:15
 INSERT INTO api_character   (real_name, alias, details, profile_picture, created_at, updated_at)  VALUES
 ('Diana of Themyscira, Diana Prince', 'Wonder Woman', 'A strong woman who loves a good accessory', 'https://images.comicbooktreasury.com/wp-content/uploads/2021/10/Wonder-Woman-Reading-Order-Jim-Lee-705x470.jpg',now(), now());
 
---pk:17
+--pk:16
 INSERT INTO api_character   (real_name, alias, details, profile_picture, created_at, updated_at)  VALUES
 ('Hal Jordan', 'Green Lantern V2', 'Former military test pilot, current guy with a funky ring', 'https://i.pinimg.com/originals/d5/2b/13/d52b13dbb294d7ebdc6de6e3f1635f3a.jpg',now(), now());
 
---pk:18
+--pk:17
 INSERT INTO api_character   (real_name, alias, details, profile_picture, created_at, updated_at)  VALUES
 ('Jonathan Samuel "John" Kent', 'Superman', 'First born son of Superman and Lois Lane', 'https://static.wikia.nocookie.net/marvel_dc/images/4/49/Superman_Son_of_Kal-El_Vol_1_10_Textless.jpg',now(), now());
 
---pk:19
+--pk:18
 INSERT INTO api_character   (real_name, alias, details, profile_picture, created_at, updated_at)  VALUES
 ('Damian Wayne', 'Robin', 'Son of Batman and Talia al Ghul & is the 5th Robin', 'https://static.wikia.nocookie.net/marvel_dc/images/6/61/Teen_Titans_Rebirth_Vol_1_1_Textless.jpg',now(), now());
 
---pk:20
+--pk:19
 INSERT INTO api_character   (real_name, alias, details, profile_picture, created_at, updated_at)  VALUES
 ('Nubia', 'Nubia', 'An honorable Amazon warrior and formerly the guardian of Dooms Doorway', 'https://static.wikia.nocookie.net/marvel_dc/images/3/31/Nubia_and_the_Amazons_Vol_1_1_Textless.jpg',now(), now());
 
---pk:21
+--pk:20
 INSERT INTO api_character   (real_name, alias, details, profile_picture, created_at, updated_at)  VALUES
 ('Connor Hawke', 'Green Arrow', 'One of the greatest hand to hand fighters', 'https://static.wikia.nocookie.net/marvel_dc/images/a/a9/Connor_Hawke_Prime_Earth_0002.jpg',now(), now());
 
---pk:22
+--pk:21
 INSERT INTO api_character   (real_name, alias, details, profile_picture, created_at, updated_at)  VALUES
 ('Barbara Gordon', 'Batgirl, Oracle', 'elite computer hacker and Gotham city vigilante', 'https://i.ebayimg.com/images/g/zbgAAOSw-Ilc-tMx/s-l1600.jpg',now(), now());
 
---pk:23
+--pk:22
 INSERT INTO api_character   (real_name, alias, details, profile_picture, created_at, updated_at)  VALUES
 ('Jackson Hyde', 'Aquaman, Aqualad', 'Openly gay former member of the Teen Titans', 'https://i.ebayimg.com/images/g/zbgAAOSw-Ilc-tMx/s-l1600.jpg',now(), now());
 
---pk:24
+--pk:23
 INSERT INTO api_character   (real_name, alias, details, profile_picture, created_at, updated_at)  VALUES
 ('Sojourner Mullein', 'Green Lantern', 'She is assigned a sector so far from Oa she is not sure if its been numbered, and she just refers to it as the Far Sector.', 'https://static.wikia.nocookie.net/marvel_dc/images/6/67/Far_Sector_Vol_1_1_McKelvie_Textless_Variant.jpg',now(), now());
 
---pk:25
+--pk:24
 INSERT INTO api_character   (real_name, alias, details, profile_picture, created_at, updated_at)  VALUES
 ('Raymond Terrill', 'The Ray', 'Light-powered superhero and member of the Justice League of America', 'https://static.wikia.nocookie.net/marvel_dc/images/8/89/Justice_League_of_America_The_Ray_Rebirth_Vol_1_1_Textless_Variant.jpg',now(), now());
 
---pk:26
+--pk:25
 INSERT INTO api_character   (real_name, alias, details, profile_picture, created_at, updated_at)  VALUES
 ('Katherine Kane', 'Batwoman',  'She is both Jewish and an out lesbian, playing a socialite during the day, and working as a vigilante by night', 'https://static.wikia.nocookie.net/marvel_dc/images/4/4f/Batwoman_Vol_2_9_Textless.jpg',now(), now());
 
---pk:27
+--pk:26
 INSERT INTO api_character   (real_name, alias, details, profile_picture, created_at, updated_at)  VALUES
 ('Timothy Drake', 'Red Robin', 'A teen vigilante who, for a time, acted as the third Robin after the death of Jason Todd. When he matured out of the role and was replaced by Damian Wayne, Tim became the vigilante Red Robin.', 'https://static.wikia.nocookie.net/marvel_dc/images/b/b6/Detective_Comics_Vol_1_939_Textless.jpg',now(), now());
 
---pk:28
+--pk:27
 INSERT INTO api_character   (real_name, alias, details, profile_picture, created_at, updated_at)  VALUES
 ('Harleen Frances Quinzel', 'Harley Quinn', 'A criminal psychologist turned flamboyant criminal menace.', 'https://i.pinimg.com/originals/84/e6/54/84e65462acb487191f7fc9fed3614eed.jpg',now(), now());
 
---pk:29
+--pk:28
 INSERT INTO api_character   (real_name, alias, details, profile_picture, created_at, updated_at)  VALUES
 ('Jess Chambers', 'Kid Quick', 'Non binary member of the Earth 11 Teen Justice', 'https://comicvine.gamespot.com/a/uploads/square_small/12/124259/7824519-7756614-01-variant.jpg',now(), now());
 
@@ -527,11 +527,13 @@ INSERT INTO api_comicbook_characters (comicbook_id, character_id) VALUES
 INSERT INTO api_comicbook_characters (comicbook_id, character_id) VALUES
 ('7','12');
 INSERT INTO api_comicbook_characters (comicbook_id, character_id) VALUES
-('7','16');
+('7','15');
 INSERT INTO api_comicbook_characters (comicbook_id, character_id) VALUES
 ('7','9');
 INSERT INTO api_comicbook_characters (comicbook_id, character_id) VALUES
-('7','17');
+('7','16');
+INSERT INTO api_comicbook_characters (comicbook_id, character_id) VALUES
+('8','17');
 INSERT INTO api_comicbook_characters (comicbook_id, character_id) VALUES
 ('8','18');
 INSERT INTO api_comicbook_characters (comicbook_id, character_id) VALUES
@@ -553,17 +555,15 @@ INSERT INTO api_comicbook_characters (comicbook_id, character_id) VALUES
 INSERT INTO api_comicbook_characters (comicbook_id, character_id) VALUES
 ('8','27');
 INSERT INTO api_comicbook_characters (comicbook_id, character_id) VALUES
-('8','28');
-INSERT INTO api_comicbook_characters (comicbook_id, character_id) VALUES
 ('8','3');
 INSERT INTO api_comicbook_characters (comicbook_id, character_id) VALUES
-('8','29');
+('8','28');
 INSERT INTO api_comicbook_characters (comicbook_id, character_id) VALUES
-('9','27');
+('9','26');
 INSERT INTO api_comicbook_characters (comicbook_id, character_id) VALUES
-('9','22');
+('9','21');
 INSERT INTO api_comicbook_characters (comicbook_id, character_id) VALUES
-('10','28');
+('10','27');
 
 -- Other useful commands:
 -- UPDATE api_user SET email='kiki@k.com' WHERE email = 'kiki@m.com';
