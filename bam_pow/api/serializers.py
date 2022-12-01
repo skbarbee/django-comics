@@ -51,17 +51,14 @@ class ComicBookReadSerializer(serializers.ModelSerializer):
 class FavoritesSerializer(serializers.ModelSerializer):
     favorite_authors = serializers.StringRelatedField(many=True)
     favorite_illustrators = serializers.StringRelatedField(many=True)
-    favorite_publishers = serializers.StringRelatedField()
+    favorite_publishers = serializers.StringRelatedField(many=True)
     favorite_characters = serializers.StringRelatedField(many=True)
     class Meta:
         model = Favorites
         fields = '__all__'
 
 class UserSerializer(serializers.ModelSerializer):
-    # authors = serializers.StringRelatedField(many=True)
-    # illustrators = serializers.StringRelatedField(many=True)
-    # publisher = serializers.StringRelatedField(many=True)
-    # characters = serializers.StringRelatedField(many=True)
+   
     # This model serializer will be used for User creation
     # The login serializer also inherits from this serializer
     # in order to require certain data for login

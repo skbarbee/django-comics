@@ -11,3 +11,11 @@ class Author(models.Model):
 	def __str__(self):
 		return f"{self.first_name} {self.last_name}"
 
+	"""Returns dictionary version of Authors models"""
+
+	def as_dict(self):
+		return {
+			'first_name': self.first_name,
+			'last_name': self.last_name,
+			'id': self.id
+		}

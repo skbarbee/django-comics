@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 from .author import Author
+from .publisher import Publisher
 
 # Create your models here.
 class Favorites(models.Model):
@@ -9,7 +10,7 @@ class Favorites(models.Model):
   id = models.AutoField(primary_key=True)
   favorite_authors = models.ManyToManyField('Author', related_name='favorite_author', blank=True,)
   favorite_illustrators = models.ManyToManyField('Illustrator', related_name='favorite_illustrator', blank=True,)
-  favorite_publishers = models.ManyToManyField('Publisher', related_name='favorite_publisher', blank=True,)
+  favorite_publishers = models.ManyToManyField(Publisher, related_name='favorite_publisher', blank=True,)
   favorite_characters = models.ManyToManyField('Character', related_name='favorite_character', blank=True,)
   owner = models.ForeignKey(
       get_user_model(),
