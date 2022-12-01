@@ -49,13 +49,13 @@ class ComicBookReadSerializer(serializers.ModelSerializer):
 
 
 class FavoritesSerializer(serializers.ModelSerializer):
-    favorite_authors = serializers.StringRelatedField(many=True)
-    favorite_illustrators = serializers.StringRelatedField(many=True)
-    favorite_publishers = serializers.StringRelatedField(many=True)
-    favorite_characters = serializers.StringRelatedField(many=True)
+    favorite_authors = AuthorSerializer(read_only=True, many=True)
+    favorite_illustrators = IllustratorSerializer(read_only=True, many=True)
+    favorite_publishers = PublisherSerializer(many=True)
+    favorite_characters = CharacterSerializer(many=True)
     class Meta:
         model = Favorites
-        fields = '__all__'
+        fields = ("favorite_authors","favorite_illustrators", "favorite_publishers", "favorite_characters", "owner" )
 
 class UserSerializer(serializers.ModelSerializer):
    
