@@ -9,14 +9,15 @@ from ..serializers import FavoritesSerializer
 
 # Create your views here.
 class FavoritesView(generics.ListCreateAPIView):
-    permission_classes=()
+    permission_classes=(IsAuthenticated,)
     serializer_class = FavoritesSerializer
     def get(self, request):
         """Index request"""
         # Get all the favorites:
-        favorites = Favorites.objects.all()
+        # favorites = Favorites.objects.all()
         # Filter the favorites by owner, so you can only see your owned favorites
-        # favorites = Favorites.objects.filter(owner=request.user.id)
+        favorites = Favorites.objects.filter(owner=request.user.id)
+        print('this is the request.user', request.user)
         # Run the data through the serializer
         data = FavoritesSerializer(favorites, many=True).data
         return Response({ 'favorites': data })

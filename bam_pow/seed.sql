@@ -1,8 +1,10 @@
 --DIRECTIONS--
 --In order to keep the pk's in order 
 --psql
---DROP DATABASE comics3;
---CREATE DATABASE comics3;
+
+--DROP DATABASE comicsdatabase;
+--CREATE DATABASE comicsdatabase;
+
 --(Then leave PSQL and do) python manage.py migrate 
 --Then 
 --psql 
@@ -89,6 +91,10 @@ INSERT INTO api_author (first_name, last_name, created_at, updated_at ) VALUES
 INSERT INTO api_author (first_name, last_name, created_at, updated_at ) VALUES
 ('R.L.', 'Stine', now(), now());
 
+--pk:6
+INSERT INTO api_author (first_name, last_name, created_at, updated_at ) VALUES
+('Jeph', 'Loeb', now(), now());
+
 ---Illustators
 --pk:1
 INSERT INTO api_illustrator (first_name, last_name, created_at, updated_at ) VALUES
@@ -108,6 +114,9 @@ INSERT INTO api_illustrator (first_name, last_name, created_at, updated_at ) VAL
 --pk:6
 INSERT INTO api_illustrator  (first_name, last_name, created_at, updated_at ) VALUES
 ('Patrick', 'Cavanaugh',now(), now());
+--pk:7
+INSERT INTO api_illustrator  (first_name, last_name, created_at, updated_at ) VALUES
+('Tim', 'Sale',now(), now());
 
 ---Characters
 --pk:1
@@ -134,6 +143,14 @@ INSERT INTO api_character   (real_name, alias, details, created_at, updated_at) 
 INSERT INTO api_character   (real_name, alias, details, created_at, updated_at)  VALUES
 ('Bruce Banner', 'Hulk', 'Scientist who turns into giant green dude when he rages',now(), now());
 
+--pk:7
+INSERT INTO api_character   (real_name, alias, details, created_at, updated_at)  VALUES
+('Bruce Wayne', 'Batman', 'Very rich, very traumatized, obsessed with bats',now(), now());
+
+--pk:8
+INSERT INTO api_character   (real_name, alias, details, created_at, updated_at)  VALUES
+('Selina Kyle', 'Catwoman', 'Sometimes hero, sometimes villian, always crazy cat lady',now(), now());
+
 --ComicBooks
 
 --pk:1
@@ -144,6 +161,10 @@ INSERT INTO api_comicbook   (title,  edition, publisher_id, release_date, cover,
 INSERT INTO api_comicbook   (title,  edition, publisher_id, release_date, cover, created_at, updated_at) VALUES
 ('What If... Miles Morales',5, '2', '06/06/2022','https://i.annihil.us/u/prod/marvel/i/mg/9/30/62b9e06b0f8d0/clean.jpg', now(), now());
 
+--pk:3
+INSERT INTO api_comicbook   (title,  edition, publisher_id, release_date, cover, created_at, updated_at) VALUES
+('Batman: The Long Halloween',1, '6', '12/01/1996','https://static.wikia.nocookie.net/marvel_dc/images/a/a8/Batman_the_Long_Halloween_1.jpg/revision/latest?cb=20080618060853', now(), now());
+
 --ComicBook Authors
 
 INSERT INTO api_comicbook_authors (comicbook_id, author_id) VALUES
@@ -151,6 +172,9 @@ INSERT INTO api_comicbook_authors (comicbook_id, author_id) VALUES
 
 INSERT INTO api_comicbook_authors (comicbook_id, author_id) VALUES
 ('2','1');
+
+INSERT INTO api_comicbook_authors (comicbook_id, author_id) VALUES
+('3','6');
 
 --ComicBook Illustrators
 
@@ -160,6 +184,8 @@ INSERT INTO api_comicbook_illustrators (comicbook_id, illustrator_id) VALUES
 ('1','2');
 INSERT INTO api_comicbook_illustrators (comicbook_id, illustrator_id) VALUES
 ('2','3');
+INSERT INTO api_comicbook_illustrators (comicbook_id, illustrator_id) VALUES
+('3','7');
 
 --ComicBook Characters
 
@@ -169,6 +195,10 @@ INSERT INTO api_comicbook_characters (comicbook_id, character_id) VALUES
 ('2','2');
 INSERT INTO api_comicbook_characters (comicbook_id, character_id) VALUES
 ('2','6');
+INSERT INTO api_comicbook_characters (comicbook_id, character_id) VALUES
+('3','7');
+INSERT INTO api_comicbook_characters (comicbook_id, character_id) VALUES
+('3','8');
 
 
 
