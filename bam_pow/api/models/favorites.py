@@ -6,10 +6,11 @@ from .author import Author
 class Favorites(models.Model):
   # define fields
   # https://docs.djangoproject.com/en/3.0/ref/models/fields/
-  favorite_authors = models.ManyToManyField('Author', related_name='favorite_author', blank=True, null=True)
-  favorite_illustrators = models.ManyToManyField('Illustrator', related_name='favorite_illustrator', blank=True, null=True)
-  favorite_publishers = models.ManyToManyField('Publisher', related_name='favorite_publisher', blank=True, null=True)
-  favorite_characters = models.ManyToManyField('Character', related_name='favorite_character', blank=True, null=True)
+  id = models.AutoField(primary_key=True)
+  favorite_authors = models.ManyToManyField('Author', related_name='favorite_author', blank=True,)
+  favorite_illustrators = models.ManyToManyField('Illustrator', related_name='favorite_illustrator', blank=True,)
+  favorite_publishers = models.ManyToManyField('Publisher', related_name='favorite_publisher', blank=True,)
+  favorite_characters = models.ManyToManyField('Character', related_name='favorite_character', blank=True,)
   owner = models.ForeignKey(
       get_user_model(),
       on_delete=models.CASCADE

@@ -7,6 +7,7 @@ from .publisher import Publisher
 from .illustrator import Illustrator
 
 class ComicBook(models.Model):
+    id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=100)
     edition = models.IntegerField(validators=[MinValueValidator(0)])
     release_date = models.DateField(null=True, blank=True)

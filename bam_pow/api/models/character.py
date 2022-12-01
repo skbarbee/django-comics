@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Character(models.Model):
-
+	id = models.AutoField(primary_key=True)
 	real_name = models.CharField(max_length=100)
 	alias = models.CharField(max_length=1000,  null=True, blank=True)
 	details = models.CharField(max_length=1000)

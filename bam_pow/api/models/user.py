@@ -56,6 +56,7 @@ class UserManager(BaseUserManager):
 
 # Inherit from AbstractBaseUser and PermissionsMixin:
 class User(AbstractBaseUser, PermissionsMixin):
+    id = models.AutoField(primary_key=True)
     """Database model for users"""
     # As with any Django models, we need to define the fields
     # for the model with the type and options:
