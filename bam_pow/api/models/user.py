@@ -65,6 +65,11 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
 
+    favorite_authors = models.ManyToManyField('Author', related_name='favorite_author', blank=True,)
+    favorite_illustrators = models.ManyToManyField('Illustrator', related_name='favorite_illustrator', blank=True,)
+    favorite_publishers = models.ManyToManyField("Publisher", related_name='favorite_publisher', blank=True,)
+    favorite_characters = models.ManyToManyField('Character', related_name='favorite_character', blank=True,)
+
     # Any time we call User.objects (such as in objects.all() or objects.filter())
     # make sure to use the custom user manager we created.
     objects = UserManager()
