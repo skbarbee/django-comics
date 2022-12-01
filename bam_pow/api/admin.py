@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 
 from .models.user import User
-from .models.favorites import Favorites
+
 from .models.author import Author
 from .models.character import Character
 from .models.comic_book import ComicBook
@@ -28,6 +28,11 @@ class UserAdmin(BaseUserAdmin):
                   'is_active',
                   'is_staff',
                   'is_superuser',
+                  'favorite_authors',
+                  'favorite_characters',
+                  'favorite_illustrators',
+                  'favorite_publishers',
+
               )
           }
       ),
@@ -45,7 +50,6 @@ class UserAdmin(BaseUserAdmin):
 # register the model and tell Django to use the above UserAdmin
 # class to format the pages:
 admin.site.register(User, UserAdmin)
-admin.site.register(Favorites)
 admin.site.register(Author)
 admin.site.register(Character)
 admin.site.register(ComicBook)
