@@ -526,8 +526,7 @@ INSERT INTO api_comicbook_characters (comicbook_id, character_id) VALUES
 ('7','15');
 INSERT INTO api_comicbook_characters (comicbook_id, character_id) VALUES
 ('7','12');
-INSERT INTO api_comicbook_characters (comicbook_id, character_id) VALUES
-('7','15');
+
 INSERT INTO api_comicbook_characters (comicbook_id, character_id) VALUES
 ('7','9');
 INSERT INTO api_comicbook_characters (comicbook_id, character_id) VALUES
