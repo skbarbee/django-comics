@@ -95,6 +95,7 @@ INSERT INTO api_author (first_name, last_name, created_at, updated_at ) VALUES
 INSERT INTO api_author (first_name, last_name, created_at, updated_at ) VALUES
 ('Jeph', 'Loeb', now(), now());
 
+
 ---Illustators
 --pk:1
 INSERT INTO api_illustrator (first_name, last_name, created_at, updated_at ) VALUES
@@ -120,36 +121,36 @@ INSERT INTO api_illustrator  (first_name, last_name, created_at, updated_at ) VA
 
 ---Characters
 --pk:1
-INSERT INTO api_character  (real_name, alias, details, created_at, updated_at) VALUES
-('Riri Williams', 'Ironheart', 'Lady Ironman',now(), now());
+INSERT INTO api_character  (real_name, alias, details, profile_picture, created_at, updated_at) VALUES
+('Riri Williams', 'Ironheart', 'Lady Ironman', 'https://64.media.tumblr.com/71f4da8b8fbed98974ab625f07ff15c2/ddfde9a214927f64-70/s540x810/021d925c59e49d7937d06dbedcaacf44744fa5bf.jpg' ,now(), now());
 
 --pk:2
-INSERT INTO api_character   (real_name, alias, details, created_at, updated_at)  VALUES
-('Miles Morales', 'Spider-man', 'Young Spider-man',now(), now());
+INSERT INTO api_character   (real_name, alias, details, profile_picture, created_at, updated_at)  VALUES
+('Miles Morales', 'Spider-man', 'Young Spider-man', 'https://upload.wikimedia.org/wikipedia/en/thumb/1/1f/Spider-Man_%28Miles_Morales%29.jpg/220px-Spider-Man_%28Miles_Morales%29.jpg' ,now(), now());
 
 --pk:3
-INSERT INTO api_character   (real_name, alias, details, created_at, updated_at)  VALUES
-('Pamela Isley', 'Posion Ivy', 'Good with plants',now(), now());
+INSERT INTO api_character   (real_name, alias, details, profile_picture, created_at, updated_at)  VALUES
+('Pamela Isley', 'Posion Ivy', 'Good with plants', 'https://upload.wikimedia.org/wikipedia/en/5/5c/Poison_Ivy_Batman_Vol_3_26.png' ,now(), now());
 
 --pk:4
-INSERT INTO api_character   (real_name, alias, details, created_at, updated_at)  VALUES
-('Riccardus', 'Ice Cream Man', 'Pretty Creepy Dude',now(), now());
+INSERT INTO api_character   (real_name, alias, details, profile_picture, created_at, updated_at)  VALUES
+('Riccardus', 'Ice Cream Man', 'Pretty Creepy Dude', 'https://www.superherodb.com/pictures2/portraits/10/050/28562.jpg',now(), now());
 
 --pk:5
-INSERT INTO api_character   (real_name, alias, details, created_at, updated_at)  VALUES
-('Tony Stark', 'Iron Man', 'Male Ironheart',now(), now());
+INSERT INTO api_character   (real_name, alias, details, profile_picture, created_at, updated_at)  VALUES
+('Tony Stark', 'Iron Man', 'Male Ironheart', 'https://i.pinimg.com/736x/22/69/19/226919e4d54a2024c252eeaf9258ea0f.jpg',now(), now());
 
 --pk:6
-INSERT INTO api_character   (real_name, alias, details, created_at, updated_at)  VALUES
-('Bruce Banner', 'Hulk', 'Scientist who turns into giant green dude when he rages',now(), now());
+INSERT INTO api_character   (real_name, alias, details, profile_picture, created_at, updated_at)  VALUES
+('Bruce Banner', 'Hulk', 'Scientist who turns into giant green dude when he rages', 'http://www.comicartcommunity.com/gallery/data/media/340/hulk75.jpg',now(), now());
 
 --pk:7
-INSERT INTO api_character   (real_name, alias, details, created_at, updated_at)  VALUES
-('Bruce Wayne', 'Batman', 'Very rich, very traumatized, obsessed with bats',now(), now());
+INSERT INTO api_character   (real_name, alias, details, profile_picture, created_at, updated_at)  VALUES
+('Bruce Wayne', 'Batman', 'Very rich, very traumatized, obsessed with bats', 'https://static.wikia.nocookie.net/marvel_dc/images/4/4b/Batman_Vol_3_86_Textless.jpg',now(), now());
 
 --pk:8
-INSERT INTO api_character   (real_name, alias, details, created_at, updated_at)  VALUES
-('Selina Kyle', 'Catwoman', 'Sometimes hero, sometimes villian, always crazy cat lady',now(), now());
+INSERT INTO api_character   (real_name, alias, details, profile_picture, created_at, updated_at)  VALUES
+('Selina Kyle', 'Catwoman', 'Sometimes hero, sometimes villian, always crazy cat lady', 'https://www.dc.com/sites/default/files/imce/2020/01-JAN/CATWOMAN-80TH_5e1f916358e805.04209177.jpg',now(), now());
 
 --ComicBooks
 
@@ -163,7 +164,11 @@ INSERT INTO api_comicbook   (title,  edition, publisher_id, release_date, cover,
 
 --pk:3
 INSERT INTO api_comicbook   (title,  edition, publisher_id, release_date, cover, created_at, updated_at) VALUES
-('Batman: The Long Halloween',1, '6', '12/01/1996','https://static.wikia.nocookie.net/marvel_dc/images/a/a8/Batman_the_Long_Halloween_1.jpg/revision/latest?cb=20080618060853', now(), now());
+('Batman: The Long Halloween',1, '6', '12/01/1996','https://m.media-amazon.com/images/I/51k5K92aBCL.jpg', now(), now());
+
+--pk:4
+INSERT INTO api_comicbook   (title,  edition, publisher_id, release_date, cover, created_at, updated_at) VALUES
+('Poison Ivy Vol 1',5, '6', '12/01/2022','https://s3.amazonaws.com/comicgeeks/comics/covers/large-5379838.jpg', now(), now());
 
 --ComicBook Authors
 
@@ -176,6 +181,9 @@ INSERT INTO api_comicbook_authors (comicbook_id, author_id) VALUES
 INSERT INTO api_comicbook_authors (comicbook_id, author_id) VALUES
 ('3','6');
 
+INSERT INTO api_comicbook_authors (comicbook_id, author_id) VALUES
+('4','3');
+
 --ComicBook Illustrators
 
 INSERT INTO api_comicbook_illustrators (comicbook_id, illustrator_id) VALUES
@@ -186,6 +194,8 @@ INSERT INTO api_comicbook_illustrators (comicbook_id, illustrator_id) VALUES
 ('2','3');
 INSERT INTO api_comicbook_illustrators (comicbook_id, illustrator_id) VALUES
 ('3','7');
+INSERT INTO api_comicbook_illustrators (comicbook_id, illustrator_id) VALUES
+('4','4');
 
 --ComicBook Characters
 
@@ -199,6 +209,8 @@ INSERT INTO api_comicbook_characters (comicbook_id, character_id) VALUES
 ('3','7');
 INSERT INTO api_comicbook_characters (comicbook_id, character_id) VALUES
 ('3','8');
+INSERT INTO api_comicbook_characters (comicbook_id, character_id) VALUES
+('4','3');
 
 
 
