@@ -1,12 +1,14 @@
 --DIRECTIONS--
 --In order to keep the pk's in order 
 --psql
---DROP DATABASE comicsdatabase
---CREATE DATABASE comicsdatabase
+
+--DROP DATABASE comicsdatabase;
+--CREATE DATABASE comicsdatabase;
+
 --(Then leave PSQL and do) python manage.py migrate 
 --Then 
 --psql 
---- \i seed.sql
+--- \i seed.sql;
 \c comicsdatabase;
 
 
