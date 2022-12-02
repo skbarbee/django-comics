@@ -141,6 +141,15 @@ INSERT INTO api_author (first_name, last_name, created_at, updated_at ) VALUES
 --pk:23
 INSERT INTO api_author (first_name, last_name, created_at, updated_at ) VALUES
 ('Paul', 'Dini', now(), now());
+--pk:24
+INSERT INTO api_author (first_name, last_name, created_at, updated_at ) VALUES
+('Jody', 'Houser', now(), now());
+--pk:25
+INSERT INTO api_author (first_name, last_name, created_at, updated_at ) VALUES
+('Torunn', 'Gronbekk', now(), now());
+--pk:26
+INSERT INTO api_author (first_name, last_name, created_at, updated_at ) VALUES
+('Taboo B.', 'Earl', now(), now());
 
 ---Illustators
 --pk:1
@@ -215,6 +224,15 @@ INSERT INTO api_illustrator  (first_name, last_name, created_at, updated_at ) VA
 --pk:24
 INSERT INTO api_illustrator  (first_name, last_name, created_at, updated_at ) VALUES
 ('Stjepan', 'Sejic',now(), now());
+--pk:25
+INSERT INTO api_illustrator  (first_name, last_name, created_at, updated_at ) VALUES
+('Sara', 'Pichelli',now(), now());
+--pk:26
+INSERT INTO api_illustrator  (first_name, last_name, created_at, updated_at ) VALUES
+('Michael', 'Dowling',now(), now());
+--pk:27
+INSERT INTO api_illustrator  (first_name, last_name, created_at, updated_at ) VALUES
+('Juan', 'Ferreyra',now(), now());
 
 ---Characters
 --pk:1
@@ -303,7 +321,7 @@ INSERT INTO api_character   (real_name, alias, details, profile_picture, created
 
 --pk:22
 INSERT INTO api_character   (real_name, alias, details, profile_picture, created_at, updated_at)  VALUES
-('Jackson Hyde', 'Aquaman, Aqualad', 'Openly gay former member of the Teen Titans', 'https://i.ebayimg.com/images/g/zbgAAOSw-Ilc-tMx/s-l1600.jpg',now(), now());
+('Jackson Hyde', 'Aquaman, Aqualad', 'Openly gay former member of the Teen Titans', 'https://static.wikia.nocookie.net/marvel_dc/images/a/a8/Aquaman_The_Becoming_Vol_1_1_Textless.jpg',now(), now());
 
 --pk:23
 INSERT INTO api_character   (real_name, alias, details, profile_picture, created_at, updated_at)  VALUES
@@ -328,6 +346,26 @@ INSERT INTO api_character   (real_name, alias, details, profile_picture, created
 --pk:28
 INSERT INTO api_character   (real_name, alias, details, profile_picture, created_at, updated_at)  VALUES
 ('Jess Chambers', 'Kid Quick', 'Non binary member of the Earth 11 Teen Justice', 'https://comicvine.gamespot.com/a/uploads/square_small/12/124259/7824519-7756614-01-variant.jpg',now(), now());
+
+--pk:29
+INSERT INTO api_character   (real_name, alias, details, profile_picture, created_at, updated_at)  VALUES
+('Kamala Khan', 'Ms. Marvel', 'A teenage Pakistani-American from Jersey City, New Jersey with body-morphing abilities who discovers that she has Inhuman genes', 'https://comicvine.gamespot.com/a/uploads/scale_medium/6/67663/6948541-03-variant.jpg',now(), now());
+
+--pk:30
+INSERT INTO api_character   (real_name, alias, details, profile_picture, created_at, updated_at)  VALUES
+('Marc Spector', 'Moon Knight', 'Protects those who travel at night', 'https://static.wikia.nocookie.net/marveldatabase/images/b/ba/Moon_Knight_Vol_7_3_Stegman_Variant_Textless.jpg',now(), now());
+
+--pk:31
+INSERT INTO api_character   (real_name, alias, details, profile_picture, created_at, updated_at)  VALUES
+('Jane Foster', 'Valkyrie', 'One of the most notable and powerful female heroes', 'https://staticg.sportskeeda.com/editor/2022/07/03d02-16573756420746-1920.jpg',now(), now());
+
+--pk:32
+INSERT INTO api_character   (real_name, alias, details, profile_picture, created_at, updated_at)  VALUES
+('Thor Odinson', 'Thor: God of Thunder', 'Champion for Midgard and one of the founding members of the Avengers', 'https://static.wikia.nocookie.net/marveldatabase/images/7/75/Thor_Vol_6_19_Asrar_Variant_Textless.jpg',now(), now());
+
+--pk:33
+INSERT INTO api_character   (real_name, alias, details, profile_picture, created_at, updated_at)  VALUES
+('Peter Parker', 'Spider-Man', 'Sometimes student, sometimes scientist and sometimes photographer...full-time super hero!', 'https://i.pinimg.com/736x/fa/25/da/fa25da0fe63d0aa66cb9e3f1a031b6d0.jpg',now(), now());
 
 --ComicBooks
 
@@ -370,6 +408,46 @@ INSERT INTO api_comicbook   (title,  edition, publisher_id, release_date, cover,
 --pk:10
 INSERT INTO api_comicbook   (title,  edition, publisher_id, release_date, cover, created_at, updated_at) VALUES
 ('Harley Quinn 30th Anniversary Special',1, '3', '06/20/2022','https://m.media-amazon.com/images/I/51PMU4gsJkL.jpg', now(), now());
+
+--pk:11
+INSERT INTO api_comicbook   (title,  edition, publisher_id, release_date, cover, created_at, updated_at) VALUES
+('Poison Ivy Vol.1',1, '3', '06/07/2022','https://s3.amazonaws.com/comicgeeks/comics/covers/large-1357693.jpg', now(), now());
+
+--pk:12
+INSERT INTO api_comicbook   (title,  edition, publisher_id, release_date, cover, created_at, updated_at) VALUES
+('Poison Ivy Vol.1',3, '3', '08/02/2022','https://s3.amazonaws.com/comicgeeks/comics/covers/large-9329740.jpg', now(), now());
+
+--pk:13
+INSERT INTO api_comicbook   (title,  edition, publisher_id, release_date, cover, created_at, updated_at) VALUES
+('Poison Ivy Vol.1',2, '3', '07/05/2022','https://s3.amazonaws.com/comicgeeks/comics/covers/large-8531109.jpg', now(), now());
+
+--pk:14
+INSERT INTO api_comicbook   (title,  edition, publisher_id, release_date, cover, created_at, updated_at) VALUES
+('Poison Ivy Vol.1',4, '3', '09/06/2022','https://s3.amazonaws.com/comicgeeks/comics/covers/large-7928054.jpg', now(), now());
+
+--pk:15
+INSERT INTO api_comicbook   (title,  edition, publisher_id, release_date, cover, created_at, updated_at) VALUES
+('Poison Ivy Vol.1',6, '3', '11/01/2022','https://s3.amazonaws.com/comicgeeks/comics/covers/large-9447044.jpg', now(), now());
+
+--pk:16
+INSERT INTO api_comicbook   (title,  edition, publisher_id, release_date, cover, created_at, updated_at) VALUES
+('Ms. Marvel & Moon Knight',1, '1', '8/17/2022','https://i.annihil.us/u/prod/marvel/i/mg/a/10/62f3c67d80f9d/clean.jpg', now(), now());
+
+--pk:17
+INSERT INTO api_comicbook   (title,  edition, publisher_id, release_date, cover, created_at, updated_at) VALUES
+('Jane Foster & the Mighty Thor',1, '1', '6/8/2022','https://i.annihil.us/u/prod/marvel/i/mg/7/40/62b9e18f83f38/clean.jpg', now(), now());
+
+--pk:18
+INSERT INTO api_comicbook   (title,  edition, publisher_id, release_date, cover, created_at, updated_at) VALUES
+('Jane Foster & the Mighty Thor',2, '1', '7/6/2022','https://static.wikia.nocookie.net/marveldatabase/images/9/9c/Jane_Foster_%26_the_Mighty_Thor_Vol_1_2.jpg', now(), now());
+
+--pk:19
+INSERT INTO api_comicbook   (title,  edition, publisher_id, release_date, cover, created_at, updated_at) VALUES
+('Deadly Neighborhood Spider-Man',1, '1', '10/19/2022','https://static.wikia.nocookie.net/marveldatabase/images/2/25/Deadly_Neighborhood_Spider-Man_Vol_1_1.jpg', now(), now());
+
+--pk:20
+INSERT INTO api_comicbook   (title,  edition, publisher_id, release_date, cover, created_at, updated_at) VALUES
+('Ice Cream Man',32, '4', '09/21/2022','https://cdn.imagecomics.com/assets/i/releases/800230/_b550703809.jpg', now(), now());
 
 --ComicBook Authors
 
@@ -442,6 +520,35 @@ INSERT INTO api_comicbook_authors (comicbook_id, author_id) VALUES
 INSERT INTO api_comicbook_authors (comicbook_id, author_id) VALUES
 ('10','23');
 
+INSERT INTO api_comicbook_authors (comicbook_id, author_id) VALUES
+('11','3');
+
+INSERT INTO api_comicbook_authors (comicbook_id, author_id) VALUES
+('12','3');
+
+INSERT INTO api_comicbook_authors (comicbook_id, author_id) VALUES
+('13','3');
+
+INSERT INTO api_comicbook_authors (comicbook_id, author_id) VALUES
+('14','3');
+
+INSERT INTO api_comicbook_authors (comicbook_id, author_id) VALUES
+('15','3');
+
+INSERT INTO api_comicbook_authors (comicbook_id, author_id) VALUES
+('16','24');
+
+INSERT INTO api_comicbook_authors (comicbook_id, author_id) VALUES
+('17','25');
+
+INSERT INTO api_comicbook_authors (comicbook_id, author_id) VALUES
+('18','25');
+
+INSERT INTO api_comicbook_authors (comicbook_id, author_id) VALUES
+('19','26');
+
+INSERT INTO api_comicbook_authors (comicbook_id, author_id) VALUES
+('20','4');
 
 --ComicBook Illustrators
 
@@ -491,6 +598,26 @@ INSERT INTO api_comicbook_illustrators (comicbook_id, illustrator_id) VALUES
 ('9','23');
 INSERT INTO api_comicbook_illustrators (comicbook_id, illustrator_id) VALUES
 ('10','24');
+INSERT INTO api_comicbook_illustrators (comicbook_id, illustrator_id) VALUES
+('11','4');
+INSERT INTO api_comicbook_illustrators (comicbook_id, illustrator_id) VALUES
+('12','3');
+INSERT INTO api_comicbook_illustrators (comicbook_id, illustrator_id) VALUES
+('13','3');
+INSERT INTO api_comicbook_illustrators (comicbook_id, illustrator_id) VALUES
+('14','3');
+INSERT INTO api_comicbook_illustrators (comicbook_id, illustrator_id) VALUES
+('15','3');
+INSERT INTO api_comicbook_illustrators (comicbook_id, illustrator_id) VALUES
+('16','25');
+INSERT INTO api_comicbook_illustrators (comicbook_id, illustrator_id) VALUES
+('17','26');
+INSERT INTO api_comicbook_illustrators (comicbook_id, illustrator_id) VALUES
+('18','26');
+INSERT INTO api_comicbook_illustrators (comicbook_id, illustrator_id) VALUES
+('19','27');
+INSERT INTO api_comicbook_illustrators (comicbook_id, illustrator_id) VALUES
+('20','5');
 
 --ComicBook Characters
 
@@ -527,8 +654,6 @@ INSERT INTO api_comicbook_characters (comicbook_id, character_id) VALUES
 INSERT INTO api_comicbook_characters (comicbook_id, character_id) VALUES
 ('7','12');
 INSERT INTO api_comicbook_characters (comicbook_id, character_id) VALUES
-('7','15');
-INSERT INTO api_comicbook_characters (comicbook_id, character_id) VALUES
 ('7','9');
 INSERT INTO api_comicbook_characters (comicbook_id, character_id) VALUES
 ('7','16');
@@ -564,6 +689,31 @@ INSERT INTO api_comicbook_characters (comicbook_id, character_id) VALUES
 ('9','21');
 INSERT INTO api_comicbook_characters (comicbook_id, character_id) VALUES
 ('10','27');
+INSERT INTO api_comicbook_characters (comicbook_id, character_id) VALUES
+('11','3');
+INSERT INTO api_comicbook_characters (comicbook_id, character_id) VALUES
+('12','3');
+INSERT INTO api_comicbook_characters (comicbook_id, character_id) VALUES
+('13','3');
+INSERT INTO api_comicbook_characters (comicbook_id, character_id) VALUES
+('14','3');
+INSERT INTO api_comicbook_characters (comicbook_id, character_id) VALUES
+('15','3');
+INSERT INTO api_comicbook_characters (comicbook_id, character_id) VALUES
+('16','29');
+INSERT INTO api_comicbook_characters (comicbook_id, character_id) VALUES
+('16','30');
+INSERT INTO api_comicbook_characters (comicbook_id, character_id) VALUES
+('17','31');
+INSERT INTO api_comicbook_characters (comicbook_id, character_id) VALUES
+('18','31');
+INSERT INTO api_comicbook_characters (comicbook_id, character_id) VALUES
+('18','32');
+INSERT INTO api_comicbook_characters (comicbook_id, character_id) VALUES
+('19','33');
+INSERT INTO api_comicbook_characters (comicbook_id, character_id) VALUES
+('20','4');
+
 
 -- Other useful commands:
 -- UPDATE api_user SET email='kiki@k.com' WHERE email = 'kiki@m.com';
